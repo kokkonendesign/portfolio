@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
 
 
 
@@ -29,8 +30,8 @@
       --stone:    #8a7b74;
       --ink:      #1e1614;
       --mid:      #6b5c57;
-      --svc-bg:   #dfc8b4;
-      --svc-card: #e8d4c2;
+      --svc-bg:   #EBD021;
+      --svc-card: #ffffff;
       --warm-bg:  #e8d5c4;
       --warm-mid: #7a5c4a;
     }
@@ -40,19 +41,19 @@
     /* NAV — transparent over banner, white after scroll */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 4rem; background: transparent; border-bottom: 1px solid transparent; transition: background 0.3s, border-color 0.3s; }
     nav.scrolled { background: rgba(253,252,251,0.96); backdrop-filter: blur(14px); border-bottom-color: rgba(232,98,58,0.12); }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; letter-spacing: 0.04em; color: var(--white); text-decoration: none; transition: color 0.3s; }
+    .nav-logo { font-family: 'Story Script', cursive; font-size: 1.55rem; font-weight: 600; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; transition: color 0.3s; }
     nav.scrolled .nav-logo { color: var(--ink); }
-    .nav-logo span { color: var(--rose); }
+    .nav-logo span { color: var(--coral); }
     nav.scrolled .nav-logo span { color: var(--coral); }
     .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
     nav.scrolled .nav-links a { color: var(--mid); }
-    .nav-links a:hover { color: var(--rose); }
+    .nav-links a:hover { color: var(--coral); }
     nav.scrolled .nav-links a:hover { color: var(--coral); }
     .nav-cta { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--coral); padding: 0.65rem 1.6rem; text-decoration: none; border-radius: 40px; transition: background 0.2s, transform 0.2s; }
     .nav-cta:hover { background: var(--coral-d); transform: translateY(-1px); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: background 0.3s; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: background 0.3s; }
     nav.scrolled .hamburger span { background: var(--ink); }
 
     /* MOBILE MENU */
@@ -62,15 +63,16 @@
     .mobile-menu a:hover { color: var(--coral); }
     .close-menu { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; font-size: 1.4rem; color: var(--mid); cursor: pointer; }
 
-    /* BANNER — sits at top of page, nav floats over it */
-    .banner { margin-top: 0; position: relative; width: 100%; height: clamp(260px, 52vw, 600px); overflow: hidden; background: var(--blush); }
-    .banner img { width: 100%; height: 100%; object-fit: cover; display: block; animation: zoomIn 1.4s both; }
-    .banner-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(30,22,20,0.44) 0%, transparent 65%); display: flex; flex-direction: column; justify-content: center; padding: 0 5rem; }
-    .banner-label { font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); font-weight: 500; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.7rem; }
-    .banner-label::before { content: ''; display: block; width: 22px; height: 1px; background: var(--rose); }
-    .banner-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4.5vw, 4.2rem); font-weight: 300; line-height: 1.1; color: var(--white); max-width: 580px; }
-    .banner-headline em { font-style: italic; color: var(--coral-l); }
-    .banner-hint { position: absolute; bottom: 1rem; right: 1.5rem; background: rgba(253,252,251,0.82); border-radius: 40px; padding: 0.32rem 0.9rem; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); font-weight: 500; }
+    /* BANNER — animated floating bubbles */
+    #hero-wrap { position: relative; width: 100%; height: 580px; overflow: hidden; background: #0d0b0a; }
+    #hero-wrap canvas { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+    #hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 2rem; pointer-events: none; }
+    .banner-eyebrow { font-size: 0.68rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--coral); font-weight: 500; margin-bottom: 1.6rem; }
+    .banner-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(4rem, 10vw, 9.5rem); font-weight: 300; line-height: 0.9; color: #f0e8e3; }
+    .banner-name em { font-style: italic; color: var(--coral); }
+    #greeting { display: inline-block; transition: opacity 0.5s ease, transform 0.5s ease; }
+    #greeting.fade { opacity: 0; transform: translateY(10px); }
+    .banner-tagline { font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(240,232,227,0.4); margin-top: 2rem; font-weight: 400; }
 
     /* ABOUT / HERO — text only, no photo */
     .hero { background: var(--white); padding: 6rem 4.5rem 5rem; }
@@ -85,11 +87,31 @@
     .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
     .hero-tag { background: var(--rose); color: var(--coral-d); padding: 0.38rem 1rem; border-radius: 40px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .phone-mockup { margin-top: 2.5rem; position: relative; width: 260px; background: #1c1c1e; border-radius: 42px; padding: 14px; box-shadow: 0 0 0 2px #3a3a3c, 0 24px 60px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.06); }
+    .phone-mockup::before { content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 72px; height: 6px; background: #3a3a3c; border-radius: 3px; }
+    .phone-mockup::after { content: ''; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 44px; height: 5px; background: #3a3a3c; border-radius: 3px; }
+    .phone-screen { border-radius: 30px; overflow: hidden; background: #fff; height: 460px; }
+    .phone-link { text-decoration: none; display: block; transition: transform 0.25s; }
+    .phone-link:hover { transform: translateY(-5px); }
+    .phone-insta { display: flex; align-items: center; justify-content: center; background: #fafafa; }
+    .insta-inner { text-align: center; padding: 1.5rem 1rem; }
+    .insta-logo-wrap { width: 62px; height: 62px; border-radius: 18px; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; }
+    .insta-handle { font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500; color: #1c1c1e; margin-bottom: 0.5rem; }
+    .insta-sub { font-size: 0.72rem; color: #888; margin-bottom: 1.5rem; letter-spacing: 0.05em; }
+    .insta-btn { display: inline-block; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.6rem 1.4rem; border-radius: 40px; }
+    .phone-tiktok { display: flex; align-items: center; justify-content: center; background: #000; }
+    .tiktok-inner { text-align: center; padding: 1.5rem 1rem; }
+    .tiktok-logo-wrap { width: 62px; height: 62px; border-radius: 18px; background: #111; border: 1px solid #222; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; }
+    .tiktok-handle { font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500; color: #fff; margin-bottom: 0.5rem; }
+    .tiktok-sub { font-size: 0.72rem; color: #888; margin-bottom: 1.5rem; letter-spacing: 0.05em; }
+    .tiktok-btn { display: inline-block; background: #fe2c55; color: #fff; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.6rem 1.4rem; border-radius: 40px; }
     .btn-primary { background: var(--coral); color: var(--white); padding: 0.88rem 2.1rem; border-radius: 40px; font-size: 0.76rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: all 0.25s; display: inline-block; }
     .btn-primary:hover { background: var(--coral-d); transform: translateY(-2px); }
     .btn-secondary { background: transparent; color: var(--ink); padding: 0.88rem 2.1rem; border-radius: 40px; font-size: 0.76rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(30,22,20,0.22); transition: all 0.25s; display: inline-block; }
     .btn-secondary:hover { border-color: var(--coral); color: var(--coral); }
-    .hero-stats { display: flex; gap: 3rem; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(30,22,20,0.08); opacity: 0; animation: fadeUp 0.7s 0.7s forwards; flex-wrap: wrap; }
+    .phones-section { margin-top: 3rem; }
+    .phones-row { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 1.5rem; align-items: flex-start; justify-content: center; }
+    .hero-stats { display: flex; gap: 3rem; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(30,22,20,0.08); opacity: 0; animation: fadeUp 0.7s 0.7s forwards; flex-wrap: wrap; justify-content: center; }
     .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 600; line-height: 1; color: var(--coral); }
     .stat-label { font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-top: 0.2rem; }
 
@@ -104,8 +126,11 @@
     .services .section-label { color: var(--coral-d); }
     .services-intro { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 1.5rem; }
     .services-tagline { font-size: 0.9rem; line-height: 1.7; color: var(--mid); max-width: 300px; }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; }
-    .service-card { background: var(--svc-card); padding: 2.5rem 2rem; border: 1px solid rgba(30,22,20,0.07); transition: all 0.3s; position: relative; overflow: hidden; }
+    .services-languages { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.8rem; font-size: 1.8rem; letter-spacing: 0.14em; color: var(--mid); font-weight: 500; }
+    .services-languages span { font-size: 0.72rem; text-transform: uppercase; color: var(--coral-d); }
+    .services-languages span { color: var(--coral-d); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+    .service-card { background: var(--svc-card); padding: 2.5rem 2rem; border: 3mm solid #ffffff; border-radius: 20px; transition: all 0.3s; position: relative; overflow: hidden; }
     .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--coral); transition: width 0.4s; }
     .service-card:hover::after { width: 100%; }
     .service-card:hover { background: rgba(232,98,58,0.07); }
@@ -220,15 +245,44 @@
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* DARK MODE */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --white:    #1a1210;
+        --off:      #211815;
+        --blush:    #2a1f1b;
+        --rose:     #3d2218;
+        --stone:    #b8a9a2;
+        --ink:      #f0e8e3;
+        --mid:      #c0aca5;
+        --svc-bg:   #221816;
+        --svc-card: #2d1e18;
+        --warm-bg:  #201510;
+        --warm-mid: #c4a898;
+      }
+      nav.scrolled { background: rgba(20,14,12,0.96); }
+      footer { background: #0e0a09; }
+      input, textarea, select { background: rgba(45,30,24,0.7); border-color: rgba(192,172,165,0.2); }
+      #hero-wrap { background: #0d0b0a; }
+      .hero-tag { background: rgba(232,98,58,0.18); color: var(--coral-l); }
+      .step { border-top-color: rgba(240,232,227,0.1); }
+      .step:first-child { border-top-color: var(--coral); }
+      .step-num { color: rgba(240,232,227,0.08); }
+      .hero-stats { border-top-color: rgba(240,232,227,0.08); }
+      .testi-card { border-color: rgba(232,98,58,0.18); }
+      .p-card-badge { background: rgba(26,18,16,0.9); }
+    }
+
     /* MOBILE */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
-      .banner { height: clamp(160px, 44vw, 280px); }
+      #hero-wrap { height: clamp(280px, 60vw, 420px); }
       .banner-overlay { padding: 0 1.8rem; }
       .hero { padding: 3.5rem 1.5rem 3rem; }
       .hero-lower { grid-template-columns: 1fr; gap: 2rem; }
+      .phones-row { flex-wrap: wrap; }
       .services, .process, .testimonials, .contact { padding: 4rem 1.5rem; }
       .portfolio { padding: 4rem 0 3rem; }
       .portfolio-header { padding: 0 1.5rem; flex-direction: column; align-items: flex-start; }
@@ -250,7 +304,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">her<span>·</span>studio</a><!-- BRAND NAME: change "her·studio" here -->
+  <a href="#" class="nav-logo">Kokkonen Design</a><!-- BRAND NAME: change "her·studio" here -->
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -272,40 +326,80 @@
   <a href="#contact"   onclick="closeMobile()">Contact</a>
 </div>
 
-<!-- BANNER — to change: find id="bannerImg" below and update src="…" with your photo URL or file path -->
-<section class="banner">
-  <img id="bannerImg"
-    src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1600&q=80"
-    alt="Banner — replace src with your own image URL" />
-  
- 
-</section>
+<!-- BANNER — animated floating bubbles -->
+<div id="hero-wrap">
+  <canvas id="pcanvas"></canvas>
+  <div id="hero-content">
+    <p class="banner-eyebrow">Marketing Specialist</p>
+    <h2 class="banner-name"><span id="greeting">Hello</span></h2>
+    <p class="banner-tagline">Welcome to my page</p>
+    <a href="#contact" class="btn-primary" style="margin-top:2rem; pointer-events:auto;">Start a Project</a>
+  </div>
+</div>
 
 <!-- ABOUT ME — text only, no photo -->
 <section class="hero" id="about">
   <p class="hero-eyebrow">About Me</p>
   <h1 class="hero-name">
     Hi, I'm <em>Kata</em> —<!-- CHANGE YOUR NAME HERE -->
-    <br><strong>Marketing Strategist.</strong><!-- CHANGE YOUR TITLE HERE -->
+    <br><strong>Marketing Specialist.</strong><!-- CHANGE YOUR TITLE HERE -->
   </h1>
   <div class="hero-lower">
     <p class="hero-bio">
       <!-- CHANGE YOUR BIO HERE -->
-      Long sales cycles, regulated industries, hard-to-reach buyers — sound familiar? I help B2B companies in complex, niche sectors create content and campaigns! No middlemen, no fluff — just hands-on work from someone who has worked in marketing at global agency and corporate side. I like to expolore new technology — AI included — and bring that into everything I do. Small companies, you're welcome here too.
+      <strong>A Finn shaped by years abroad — bringing the best of both worlds to everything I do!</strong> Over 7 years in marketing across big FMCG, healthcare, and tech companies, all the way to a small family-owned greenhouse. I've worked across every marketing function, so wherever you're at, I get it. Whether you're in a regulated industry or just getting started as a startup, I create content and campaigns that actually fit your world. I love exploring new technology — AI included — and weaving it into everything I do. (Yes, I used Claude Code to build this site.) Easy to work with, curious by nature. Let's have a chat and get to know each other — you can book a 30min call below.
     </p>
     <div class="hero-right-col">
-      <div class="hero-tags">
-        <!-- CHANGE YOUR SKILL TAGS HERE — copy/paste a span to add more -->
-        <span class="hero-tag">Brand Strategy</span>
-        <span class="hero-tag">Paid Media</span>
-        <span class="hero-tag">Social Growth</span>
-        <span class="hero-tag">Content</span>
-        <span class="hero-tag">Analytics</span>
-      </div>
+
       <div class="hero-actions">
         <a href="#portfolio" class="btn-primary">See My Work</a>
         <a href="#contact" class="btn-secondary">Start a Project</a>
       </div>
+    </div>
+  </div>
+  <div class="phones-section">
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,4vw,3.6rem); font-weight:300; line-height:1.1; color:var(--ink); margin-bottom:1.5rem;">Social Media skills from: Facebook, Instagram to Tiktok</h3>
+    <div class="phones-row">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Falapihanpuutarha&tabs=timeline&width=232&height=460&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=false"
+            width="232"
+            height="460"
+            style="border:none;overflow:hidden;display:block;"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+      </div>
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <video
+            src="ScreenRecording_05-23-2026 19-54-01_1.mov"
+            autoplay
+            loop
+            muted
+            playsinline
+            style="width:100%;height:100%;object-fit:cover;display:block;">
+          </video>
+        </div>
+      </div>
+      <a href="https://www.tiktok.com/@empanadas.travel?lang=en" target="_blank" rel="noopener" class="phone-mockup phone-link">
+        <div class="phone-screen phone-tiktok">
+          <div class="tiktok-inner">
+            <div class="tiktok-logo-wrap">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z" fill="white"/>
+              </svg>
+            </div>
+            <p class="tiktok-handle">@empanadas.travel</p>
+            <p class="tiktok-sub">View on TikTok</p>
+            <span class="tiktok-btn">Open Profile</span>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
   <!-- STATS: change the numbers and labels below -->
@@ -322,46 +416,31 @@
     <div>
       <p class="section-label">What I Offer</p>
       <h2 class="section-title">Services built for <em>real impact</em></h2>
+      <p class="services-languages">🇺🇸 🇫🇮 <span>Languages</span></p>
     </div>
-    <p class="services-tagline">From brand strategy to paid ads — everything you need to grow, under one roof.</p>
   </div>
   <!-- SERVICE CARDS: edit name, description and price for each card -->
   <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-icon">✦</div>
-      <div class="service-name">Brand Strategy</div>
-      <p class="service-desc">From positioning to messaging, I build brand identities that resonate, differentiate, and endure in competitive markets.</p>
-      <p class="service-price">Starting at $2,500</p>
+    <a href="#contact" class="service-card reveal" style="text-decoration:none; padding:0; overflow:hidden;">
+      <img src="img_2725.jpg" alt="Content Curation sample" style="width:100%; height:200px; object-fit:cover; display:block;" />
+      <div style="padding:1.2rem 1.4rem 1.4rem;">
+        <div class="service-name">Content Curation</div>
+        <p class="service-desc">Print and digital material to support your business. Not to forget source files and guidelines delivered to you.</p>
+        <p class="service-price">From 30EUR/hour</p>
+      </div>
+    </a>
+    <div class="service-card reveal" style="padding:0; overflow:hidden;">
+      <video src="social_media_sample.mov" autoplay loop muted playsinline style="width:100%; height:200px; object-fit:cover; object-position:center 20%; display:block;"></video>
+      <div style="padding:1.2rem 1.4rem 1.4rem;">
+        <div class="service-name">Social Media and AI</div>
+        <p class="service-desc">Social media page content creation, ideation and community building. Analytics.</p>
+        <p class="service-price">From 30EUR/hour</p>
+      </div>
     </div>
     <div class="service-card reveal">
-      <div class="service-icon">◎</div>
-      <div class="service-name">Social Media</div>
-      <p class="service-desc">Content calendars, community management, ad creatives, and analytics — a complete social presence built to grow.</p>
-      <p class="service-price">From $1,200 / month</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">⚡</div>
       <div class="service-name">Paid Campaigns</div>
-      <p class="service-desc">Google, Meta, TikTok, and LinkedIn ads managed with precision targeting and ruthless ROAS optimisation.</p>
-      <p class="service-price">From $1,800 / month</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">✍</div>
-      <div class="service-name">Content Marketing</div>
-      <p class="service-desc">SEO articles, video scripts, email sequences — content that educates, converts, and keeps them coming back.</p>
-      <p class="service-price">From $900 / month</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">◈</div>
-      <div class="service-name">Analytics & Reporting</div>
-      <p class="service-desc">Custom dashboards, attribution modelling, and monthly strategy calls to turn data into clear decisions.</p>
-      <p class="service-price">From $750 / month</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">✿</div>
-      <div class="service-name">Creative Direction</div>
-      <p class="service-desc">Campaign concepting, art direction, and creative production that makes people feel something.</p>
-      <p class="service-price">Starting at $3,500</p>
+      <p class="service-desc">Setting up and managing Meta, LinkedIn and TikTok ads. Sends weekly reporting.</p>
+      <p class="service-price">From 30EUR/hour</p>
     </div>
   </div>
 </section>
@@ -548,8 +627,8 @@
 </section>
 
 <footer>
-  <a href="#" class="nav-logo">her<span style="color:var(--coral)">·</span>studio</a><!-- BRAND NAME -->
-  <p>© 2026 Her Studio. All rights reserved.</p>
+  <a href="#" class="nav-logo">Kokkonen Design</a><!-- BRAND NAME -->
+  <p>© 2026 Kokkonen Design. All rights reserved.</p>
   <!-- SOCIAL LINKS: replace # with your real profile URLs -->
   <div class="social-links"><!-- SOCIAL LINKS -->
     <a href="#">Instagram</a>
@@ -559,7 +638,126 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  const MAX_DIST = 155;
+  const PALETTE = [
+    { r: 232, g: 98,  b: 58  },
+    { r: 245, g: 177, b: 71  },
+    { r: 240, g: 232, b: 227 },
+    { r: 200, g: 80,  b: 40  },
+    { r: 255, g: 140, b: 60  },
+  ];
+
+  const canvas = document.getElementById('pcanvas');
+  const wrap   = document.getElementById('hero-wrap');
+  const ctx    = canvas.getContext('2d');
+  let W, H, nodes = [], animId;
+
+  function rand(a, b) { return a + Math.random() * (b - a); }
+
+  function createNode() {
+    const col = PALETTE[Math.floor(rand(0, PALETTE.length))];
+    return {
+      x: rand(0, W), y: rand(0, H),
+      vx: (Math.random() - 0.5) * 0.38,
+      vy: (Math.random() - 0.5) * 0.38,
+      r: rand(1.2, 2.8),
+      col,
+      pulse: rand(0, Math.PI * 2),
+      pulseSpeed: rand(0.008, 0.025),
+    };
+  }
+
+  function initNodes() {
+    nodes = [];
+    const count = Math.min(100, Math.max(55, Math.floor(W * H / 7000)));
+    for (let i = 0; i < count; i++) nodes.push(createNode());
+  }
+
+  function resize() {
+    W = wrap.offsetWidth;
+    H = wrap.offsetHeight || 580;
+    canvas.width  = W;
+    canvas.height = H;
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = '#0d0b0a';
+    ctx.fillRect(0, 0, W, H);
+
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MAX_DIST) {
+          const alpha = (1 - dist / MAX_DIST) * 0.28;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = `rgba(232,98,58,${alpha})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    for (const p of nodes) {
+      p.pulse += p.pulseSpeed;
+      const alpha = 0.55 + 0.35 * Math.sin(p.pulse);
+
+      const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 9);
+      glow.addColorStop(0, `rgba(${p.col.r},${p.col.g},${p.col.b},${alpha * 0.22})`);
+      glow.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 9, 0, Math.PI * 2);
+      ctx.fillStyle = glow;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.col.r},${p.col.g},${p.col.b},${alpha})`;
+      ctx.fill();
+
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < -20) p.x = W + 20;
+      if (p.x > W + 20) p.x = -20;
+      if (p.y < -20) p.y = H + 20;
+      if (p.y > H + 20) p.y = -20;
+    }
+
+    animId = requestAnimationFrame(draw);
+  }
+
+  function init() {
+    resize(); initNodes();
+    if (animId) cancelAnimationFrame(animId);
+    draw();
+  }
+
+  window.addEventListener('resize', init);
+  init();
+})();
+</script>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── Rotating greeting ── */
+(function () {
+  const greetings = ['Hello', 'Hei', 'Hej', 'Привет', '你好', 'Hola', 'Bonjour', 'Hallo', 'Olá', 'Guten Tag'];
+  const el = document.getElementById('greeting');
+  let i = 0;
+  setInterval(() => {
+    el.classList.add('fade');
+    setTimeout(() => {
+      i = (i + 1) % greetings.length;
+      el.textContent = greetings[i];
+      el.classList.remove('fade');
+    }, 500);
+  }, 3000);
+})();
+
 /* ── Nav: transparent → white on scroll ── */
 const navEl = document.querySelector('nav');
 function updateNav() { navEl.classList.toggle('scrolled', window.scrollY > 60); }
