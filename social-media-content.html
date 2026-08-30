@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Media Content — Katariina Kokkonen</title>
+  <meta name="description" content="Social media content samples by Katariina Kokkonen." />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <style>
+    /* ── Fonts (same as the main site) ── */
+    @font-face {
+      font-family: 'KK Display';
+      src: url('assets/fonts/display-400.woff') format('woff');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'KK Display';
+      src: url('assets/fonts/display-700.woff') format('woff');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'KK Sans';
+      src: url('assets/fonts/sans-400.woff') format('woff');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'KK Sans';
+      src: url('assets/fonts/sans-700.woff') format('woff');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:      #94EDED;
+      --teal-tint: #EAFBFB;
+      --cyan:      #0CC0DF;
+      --yellow:    #FAEC6C;
+      --taupe:     #5E5343;
+      --gray:      #737373;
+      --muted:     #868686;
+      --white:     #FFFFFF;
+      --ink:       #2B2B2B;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--gray); font-family: 'KK Sans', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 400; }
+    img { max-width: 100%; }
+
+    .pill { display: inline-block; border: none; cursor: pointer; text-decoration: none; text-align: center;
+      font-family: 'KK Sans', sans-serif; font-size: 0.95rem; padding: 0.72rem 2rem; border-radius: 999px;
+      box-shadow: 0 4px 10px rgba(94,83,67,0.25); transition: transform 0.15s, box-shadow 0.15s; }
+    .pill:hover { transform: translateY(2px); box-shadow: 0 2px 6px rgba(94,83,67,0.22); }
+    .pill-babyblue { background: var(--teal); color: var(--taupe); font-weight: 700; }
+
+    /* ── HEADER ── */
+    header { background: var(--teal); padding: 2.5rem 4rem 5rem; text-align: center; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--white); text-decoration: none;
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .back-link:hover { text-decoration: underline; }
+    .page-title { font-family: 'KK Display', Georgia, serif; font-weight: 400; font-size: clamp(2.8rem, 6vw, 5rem);
+      color: var(--white); margin: 2rem 0 1rem; }
+    .page-intro { max-width: 42rem; margin: 0 auto; color: rgba(255,255,255,0.9); font-size: 1.02rem; line-height: 1.7; }
+
+    /* ── GALLERY ── */
+    main { padding: 4.5rem 4rem 6rem; max-width: 1200px; margin: 0 auto; }
+    .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .content-section-heading { grid-column: 1 / -1; font-family: 'KK Display', Georgia, serif; font-weight: 400;
+      font-size: 1.6rem; color: var(--taupe); margin: 0 0 -0.5rem; }
+    .content-section-heading:not(:first-child) { margin-top: 1.5rem; }
+    .content-card { display: flex; flex-direction: column; }
+    .content-media { aspect-ratio: 4 / 5; border-radius: 20px; border: 2px dashed #D8D8D8; background: var(--teal-tint);
+      display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .content-media img, .content-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* for clips exported with black bars baked into the frame: scale the picture up until the bars
+       fall outside the tile. 1.22 suits a 1180x2556 recording sitting in a 720x1280 frame. */
+    .content-media video.pillarboxed { transform: scale(1.23); }
+    .content-media video.pillarboxed-tight { transform: scale(1.4); }
+    .content-media-label { color: var(--muted); font-size: 0.85rem; text-align: center; padding: 1.5rem; }
+    .content-platform { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin: 1rem 0 0.3rem; }
+    .content-caption { font-size: 0.92rem; line-height: 1.55; color: var(--gray); }
+    .content-caption .caption-link { color: var(--cyan); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+    .content-card-link:hover .content-caption .caption-link { color: var(--taupe); }
+    .content-card-link { text-decoration: none; transition: transform 0.15s; }
+    .content-card-link:hover { transform: translateY(-3px); }
+    .content-card-link .content-media { border-style: solid; border-color: var(--teal-tint); }
+    .content-card-link:hover .content-media { border-color: var(--cyan); }
+
+    .howto { background: var(--teal-tint); border-radius: 20px; padding: 2rem 2.2rem; margin-bottom: 3.5rem; }
+    .howto h2 { font-family: 'KK Display', Georgia, serif; font-weight: 400; font-size: 1.4rem; color: var(--cyan); margin-bottom: 0.8rem; }
+    .howto p { font-size: 0.92rem; line-height: 1.7; color: var(--gray); margin-bottom: 0.5rem; }
+    .howto code { background: rgba(0,0,0,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.85em; }
+
+    @media (max-width: 900px) {
+      header { padding: 2rem 1.5rem 3.5rem; }
+      main { padding: 3rem 1.5rem 4rem; }
+      .content-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    }
+    @media (max-width: 560px) {
+      .content-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="back-link" href="index.html">← Back to Portfolio</a>
+  <h1 class="page-title">Social Media Content</h1>
+  <p class="page-intro">A closer look at social media content I've planned, designed, and published — campaigns, organic posts, and behind-the-scenes work across platforms.</p>
+</header>
+
+<main>
+  <!--
+    HOW TO ADD CONTENT
+    Duplicate one <div class="content-card">…</div> block below for each new piece.
+    1. Inside .content-media, replace the placeholder <p class="content-media-label"> with
+       an <img src="assets/img/your-file.jpg" alt="..."> or <video src="assets/video/your-file.mp4" autoplay loop muted playsinline></video>
+    2. Set .content-platform to the channel (e.g. "Instagram", "TikTok", "LinkedIn").
+    3. Set .content-caption to a short description of the piece.
+  -->
+  <div class="howto">
+    <h2>Social Media Tools</h2>
+    <p>Each tile below is an empty placeholder. Open this file (<code>social-media-content.html</code>) and, for any tile, replace the dashed box's placeholder text with an <code>&lt;img&gt;</code> or <code>&lt;video&gt;</code> tag pointing at your file, then fill in the platform and caption lines just below it.</p>
+    <p>To add more tiles, copy one whole <code>.content-card</code> block and paste it into the grid.</p>
+  </div>
+
+  <div class="content-grid">
+    <h2 class="content-section-heading">Alapihan Puutarha</h2>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/Alapihan puutarha POV.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">POV Alapihan Puutarha, CapCut</p>
+      <p class="content-caption">Facebook: <a class="caption-link" href="https://www.facebook.com/alapihanpuutarha/" target="_blank" rel="noopener">Alapihan Puutarha</a><br>922 followers · 1,771 views</p>
+    </div>
+    <a class="content-card content-card-link" href="https://drive.google.com/file/d/1YEgwYLe2JxTpBZf6eTcuw4bFQxtJn7Kc/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="content-media">
+        <video class="pillarboxed" src="assets/video/case-study-phone.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">Case Study</p>
+      <p class="content-caption">Brand Awareness: Alapihan Puutarha — <span class="caption-link">view the full case study on Google Drive →</span></p>
+    </a>
+    <div class="content-card">
+      <div class="content-media">
+        <img src="assets/img/Linda.png" alt="Eurovision trend 2026" style="object-position: center top;">
+      </div>
+      <p class="content-platform">Eurovision trend 2026</p>
+      <p class="content-caption">Facebook: <a class="caption-link" href="https://www.facebook.com/photo?fbid=1501286085033683&amp;set=a.579069617255339" target="_blank" rel="noopener">Alapihan Puutarha</a><br>30,858 Facebook views, 492 reactions, 17 reshares, 17 comments</p>
+    </div>
+    <h2 class="content-section-heading">Ada.learning.ai - AI tool testing account</h2>
+    <div class="content-card">
+      <div class="content-media">
+        <video class="pillarboxed" src="assets/video/lockness.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">Seedance, Capcut and Gemini AI Generative video</p>
+      <p class="content-caption">Instagram: <a class="caption-link" href="https://www.instagram.com/ada.learning.ai/" target="_blank" rel="noopener">ada.learning.ai</a></p>
+    </div>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/dropping balls 3.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">Seedance, Capcut and Gemini generative video</p>
+      <p class="content-caption">Instagram: <a class="caption-link" href="https://www.instagram.com/ada.learning.ai/" target="_blank" rel="noopener">ada.learning.ai</a></p>
+    </div>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/things do not look.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">VEO 3 and Gemini AI Generative video</p>
+      <p class="content-caption">Instagram: <a class="caption-link" href="https://www.instagram.com/ada.learning.ai/" target="_blank" rel="noopener">ada.learning.ai</a></p>
+    </div>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/bite by sharks.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">CapCut Seedance 2.0, Capcut video editing</p>
+      <p class="content-caption">Instagram: <a class="caption-link" href="https://www.instagram.com/ada.learning.ai/" target="_blank" rel="noopener">ada.learning.ai</a></p>
+    </div>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/monster.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">Seedance, Gemini AI, CapCut</p>
+      <p class="content-caption">Instagram: <a class="caption-link" href="https://www.instagram.com/p/DXXh4F6DNiJ/" target="_blank" rel="noopener">ada.learning.ai</a></p>
+    </div>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/bubs.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">How far we have come - Gemini AI, CapCut</p>
+      <p class="content-caption">Instagram: <a class="caption-link" href="https://www.instagram.com/p/DY-o05gsiAH/" target="_blank" rel="noopener">ada.learning.ai</a></p>
+    </div>
+    <h2 class="content-section-heading">GE HealthCare - congress videos</h2>
+    <div class="content-card">
+      <div class="content-media">
+        <video class="pillarboxed-tight" src="assets/video/ge complete solution.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">LinkedIn video post, CapCut</p>
+      <p class="content-caption">LinkedIn: <a class="caption-link" href="https://www.linkedin.com/posts/katariinakokkonen_gehealthcare-nuga-womenshealth-activity-7439665581223747584-krid?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAABd9cqEB0ifkbJdHgFDQeRiDB50eWhWimVE" target="_blank" rel="noopener">Katariina Kokkonen</a><br>10,020 views · 16 reshares</p>
+    </div>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/NNFM video.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">NNFM congress 2026</p>
+      <p class="content-caption">LinkedIn: <a class="caption-link" href="https://www.linkedin.com/posts/katariinakokkonen_gehealthcare-gehealthcarewomenshealth-diagnoly-activity-7466046560519241729-Ycyi?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAABd9cqEB0ifkbJdHgFDQeRiDB50eWhWimVE" target="_blank" rel="noopener">Katariina Kokkonen</a><br>1,719 views · 7 reposts</p>
+    </div>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/anekone.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">Operative Days 2025</p>
+      <p class="content-caption">Impressions: 3286</p>
+    </div>
+    <h2 class="content-section-heading">Empanadas.travel - Argentina fun videos TikTok</h2>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/POV video.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">POV video TikTok</p>
+      <p class="content-caption">TikTok: <a class="caption-link" href="https://www.tiktok.com/@empanadas.travel" target="_blank" rel="noopener">Empanadas.travel</a></p>
+    </div>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/food video.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">Food video, CapCut, TikTok editor</p>
+      <p class="content-caption">TikTok: <a class="caption-link" href="https://www.tiktok.com/@empanadas.travel" target="_blank" rel="noopener">Empanadas.travel</a></p>
+    </div>
+    <div class="content-card">
+      <div class="content-media">
+        <video src="assets/video/nordic.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <p class="content-platform">TikTok humor</p>
+      <p class="content-caption">TikTok: <a class="caption-link" href="https://www.tiktok.com/@empanadas.travel/video/7620351771604454678" target="_blank" rel="noopener">empanadas.travel</a></p>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
