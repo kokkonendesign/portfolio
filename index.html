@@ -3,315 +3,269 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio — Marketing & Portfolio</title>
-  <meta name="description" content="Creative marketing services — strategy, branding, campaigns, and growth." />
-  <meta property="og:title" content="Studio — Marketing & Portfolio" />
-  <meta property="og:description" content="Bold marketing with a feminine edge. Strategy · Branding · Campaigns." />
+  <title>Katariina Kokkonen — Marketing Portfolio</title>
+  <meta name="description" content="Portfolio of Katariina Kokkonen — Finnish marketing specialist. Social media content, event management, graphic design and project management." />
+  <meta property="og:title" content="Katariina Kokkonen — Marketing Portfolio" />
+  <meta property="og:description" content="Welcome to my Marketing Portfolio! Social media content · Event management · Graphic design · Project management." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&q=80" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
-
-
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
 
   <style>
+    /* ── Fonts copied from the Canva site (self-hosted in assets/fonts) ── */
+    @font-face {
+      font-family: 'KK Display';
+      src: url('assets/fonts/display-400.woff') format('woff');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'KK Display';
+      src: url('assets/fonts/display-700.woff') format('woff');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'KK Sans';
+      src: url('assets/fonts/sans-400.woff') format('woff');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'KK Sans';
+      src: url('assets/fonts/sans-700.woff') format('woff');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Palette sampled from the Canva design ── */
     :root {
-      --white:    #fdfcfb;
-      --off:      #f7f3f0;
-      --blush:    #f5ebe5;
-      --coral:    #e8623a;
-      --coral-l:  #f0896a;
-      --coral-d:  #c44d28;
-      --rose:     #f2cfc4;
-      --stone:    #8a7b74;
-      --ink:      #1e1614;
-      --mid:      #6b5c57;
-      --svc-bg:   #EBD021;
-      --svc-card: #ffffff;
-      --warm-bg:  #e8d5c4;
-      --warm-mid: #7a5c4a;
+      --teal:      #94EDED;   /* hero + contact background */
+      --teal-soft: #C9F7F7;
+      --teal-tint: #EAFBFB;
+      --cyan:      #0CC0DF;   /* headings + links on white */
+      --teal-link: #5CE1E6;   /* LinkedIn button text */
+      --aqua-btn:  #8FE8EC;   /* "See more" pill fill */
+      --yellow:    #FAEC6C;   /* Samples buttons + social icons */
+      --stem:      #D3D91E;   /* dandelion stem */
+      --taupe:     #5E5343;   /* case study text + button shadows */
+      --gray:      #737373;   /* body text */
+      --muted:     #868686;   /* secondary headings + contact values */
+      --white:     #FFFFFF;
+      --ink:       #2B2B2B;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--white); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+    body { background: var(--white); color: var(--gray); font-family: 'KK Sans', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 400; overflow-x: hidden; }
+    img { max-width: 100%; }
 
-    /* NAV — transparent over banner, white after scroll */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 4rem; background: transparent; border-bottom: 1px solid transparent; transition: background 0.3s, border-color 0.3s; }
-    nav.scrolled { background: rgba(253,252,251,0.96); backdrop-filter: blur(14px); border-bottom-color: rgba(232,98,58,0.12); }
-    .nav-logo { font-family: 'Story Script', cursive; font-size: 1.55rem; font-weight: 600; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; transition: color 0.3s; }
-    nav.scrolled .nav-logo { color: var(--ink); }
-    .nav-logo span { color: var(--coral); }
-    nav.scrolled .nav-logo span { color: var(--coral); }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
-    nav.scrolled .nav-links a { color: var(--mid); }
-    .nav-links a:hover { color: var(--coral); }
-    nav.scrolled .nav-links a:hover { color: var(--coral); }
-    .nav-cta { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--coral); padding: 0.65rem 1.6rem; text-decoration: none; border-radius: 40px; transition: background 0.2s, transform 0.2s; }
-    .nav-cta:hover { background: var(--coral-d); transform: translateY(-1px); }
+    .display { font-family: 'KK Display', Georgia, 'Times New Roman', serif; font-weight: 400; }
+
+    /* ── Canva-style pill buttons: hard taupe drop shadow ── */
+    .pill { display: inline-block; border: none; cursor: pointer; text-decoration: none; text-align: center;
+      font-family: 'KK Sans', sans-serif; font-size: 0.95rem; padding: 0.72rem 2rem; border-radius: 999px;
+      box-shadow: 0 4px 10px rgba(94,83,67,0.25); transition: transform 0.15s, box-shadow 0.15s; }
+    .pill:hover { transform: translateY(2px); box-shadow: 0 2px 6px rgba(94,83,67,0.22); }
+    .pill-white { background: var(--white); }
+    .pill-white span { color: var(--teal-link); text-decoration: underline; }
+    .pill-yellow { background: var(--yellow); color: var(--taupe); font-weight: 700; }
+    .pill-babyblue { background: var(--teal); color: var(--taupe); font-weight: 700; }
+
+    /* ── NAV — non-sticky, sits on the teal hero and scrolls away ── */
+    nav { position: absolute; top: 0; left: 0; right: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 4rem; background: transparent; }
+    .nav-logo { font-family: 'KK Display', Georgia, serif; font-size: 1.45rem; color: var(--white); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); text-decoration: none; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: border-color 0.2s; }
+    .nav-links a:hover { border-bottom-color: var(--white); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: background 0.3s; }
-    nav.scrolled .hamburger span { background: var(--ink); }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
 
     /* MOBILE MENU */
-    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--white); z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--teal); z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--ink); text-decoration: none; transition: color 0.2s; }
-    .mobile-menu a:hover { color: var(--coral); }
-    .close-menu { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; font-size: 1.4rem; color: var(--mid); cursor: pointer; }
+    .mobile-menu a { font-family: 'KK Display', Georgia, serif; font-size: 2.4rem; color: var(--white); text-decoration: none; }
+    .close-menu { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; font-size: 1.5rem; color: var(--white); cursor: pointer; }
 
-    /* BANNER — animated floating bubbles */
-    #hero-wrap { position: relative; width: 100%; height: 580px; overflow: hidden; background: #0d0b0a; }
-    #hero-wrap canvas { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
-    #hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 2rem; pointer-events: none; }
-    .banner-eyebrow { font-size: 0.68rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--coral); font-weight: 500; margin-bottom: 1.6rem; }
-    .banner-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(4rem, 10vw, 9.5rem); font-weight: 300; line-height: 0.9; color: #f0e8e3; }
-    .banner-name em { font-style: italic; color: var(--coral); }
+    /* ── HERO — teal with dandelion, rotating hellos ── */
+    #hero-wrap { position: relative; width: 100%; min-height: clamp(440px, 58vh, 600px); overflow: hidden; background: var(--teal); }
+    #hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: clamp(440px, 58vh, 600px); text-align: center; padding: 5rem 4rem 3rem; max-width: 100%; margin: 0 auto; }
+    .banner-nametag { font-size: 1.05rem; letter-spacing: 0.06em; color: var(--white); font-weight: 700; margin-bottom: 0.5rem; }
+    .banner-eyebrow { font-size: 0.78rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--white); font-weight: 700; margin-bottom: 1.6rem; }
+    .banner-name { font-family: 'KK Display', Georgia, serif; font-size: clamp(4rem, 10vw, 9rem); font-weight: 400; line-height: 1; color: var(--white); }
+    /* Outlined lettering like the Canva hero title */
+    @supports (-webkit-text-stroke: 2px white) {
+      .banner-name { color: transparent; -webkit-text-stroke: 3px var(--white); }
+    }
     #greeting { display: inline-block; transition: opacity 0.5s ease, transform 0.5s ease; }
     #greeting.fade { opacity: 0; transform: translateY(10px); }
-    .banner-tagline { font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(240,232,227,0.4); margin-top: 2rem; font-weight: 400; }
+    .banner-tagline { font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-top: 2rem; font-weight: 400; }
+    .hero-linkedin { margin-top: 2.4rem; }
 
-    /* ABOUT / HERO — text only, no photo */
-    .hero { background: var(--white); padding: 6rem 4.5rem 5rem; }
-    .hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--coral); font-weight: 500; margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 0.7s 0.2s forwards; display: flex; align-items: center; gap: 0.8rem; }
-    .hero-eyebrow::before { content: ''; display: block; width: 26px; height: 1px; background: var(--coral); }
-    .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5.5vw, 5.8rem); font-weight: 300; line-height: 1.0; color: var(--ink); opacity: 0; animation: fadeUp 0.7s 0.3s forwards; max-width: 700px; }
-    .hero-name em { font-style: italic; color: var(--coral); }
-    .hero-name strong { font-weight: 600; }
-    .hero-lower { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2.5rem; align-items: start; }
-    .hero-bio { font-size: 1rem; line-height: 1.8; color: var(--mid); opacity: 0; animation: fadeUp 0.7s 0.45s forwards; }
-    .hero-right-col { opacity: 0; animation: fadeUp 0.7s 0.55s forwards; }
-    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
-    .hero-tag { background: var(--rose); color: var(--coral-d); padding: 0.38rem 1rem; border-radius: 40px; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .phone-mockup { margin-top: 2.5rem; position: relative; width: 260px; background: #1c1c1e; border-radius: 42px; padding: 14px; box-shadow: 0 0 0 2px #3a3a3c, 0 24px 60px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.06); }
-    .phone-mockup::before { content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 72px; height: 6px; background: #3a3a3c; border-radius: 3px; }
-    .phone-mockup::after { content: ''; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 44px; height: 5px; background: #3a3a3c; border-radius: 3px; }
-    .phone-screen { border-radius: 30px; overflow: hidden; background: #fff; height: 460px; }
-    .phone-link { text-decoration: none; display: block; transition: transform 0.25s; }
-    .phone-link:hover { transform: translateY(-5px); }
-    .phone-insta { display: flex; align-items: center; justify-content: center; background: #fafafa; }
-    .insta-inner { text-align: center; padding: 1.5rem 1rem; }
-    .insta-logo-wrap { width: 62px; height: 62px; border-radius: 18px; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; }
-    .insta-handle { font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500; color: #1c1c1e; margin-bottom: 0.5rem; }
-    .insta-sub { font-size: 0.72rem; color: #888; margin-bottom: 1.5rem; letter-spacing: 0.05em; }
-    .insta-btn { display: inline-block; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.6rem 1.4rem; border-radius: 40px; }
-    .phone-tiktok { display: flex; align-items: center; justify-content: center; background: #000; }
-    .tiktok-inner { text-align: center; padding: 1.5rem 1rem; }
-    .tiktok-logo-wrap { width: 62px; height: 62px; border-radius: 18px; background: #111; border: 1px solid #222; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; }
-    .tiktok-handle { font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500; color: #fff; margin-bottom: 0.5rem; }
-    .tiktok-sub { font-size: 0.72rem; color: #888; margin-bottom: 1.5rem; letter-spacing: 0.05em; }
-    .tiktok-btn { display: inline-block; background: #fe2c55; color: #fff; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.6rem 1.4rem; border-radius: 40px; }
-    .btn-primary { background: var(--coral); color: var(--white); padding: 0.88rem 2.1rem; border-radius: 40px; font-size: 0.76rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: all 0.25s; display: inline-block; }
-    .btn-primary:hover { background: var(--coral-d); transform: translateY(-2px); }
-    .btn-secondary { background: transparent; color: var(--ink); padding: 0.88rem 2.1rem; border-radius: 40px; font-size: 0.76rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(30,22,20,0.22); transition: all 0.25s; display: inline-block; }
-    .btn-secondary:hover { border-color: var(--coral); color: var(--coral); }
-    .phones-section { margin-top: 3rem; }
-    .phones-row { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 1.5rem; align-items: flex-start; justify-content: center; }
-    .hero-stats { display: flex; gap: 3rem; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(30,22,20,0.08); opacity: 0; animation: fadeUp 0.7s 0.7s forwards; flex-wrap: wrap; justify-content: center; }
-    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 600; line-height: 1; color: var(--coral); }
-    .stat-label { font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-top: 0.2rem; }
+    /* Dandelion from the Canva design */
+    .dandelion { position: absolute; z-index: 1; top: 15%; right: 6%; width: clamp(170px, 27vw, 380px); pointer-events: none; }
+    .dandelion .flower { display: block; width: 100%; height: auto; position: relative; z-index: 2; }
+    .dandelion .stem { position: absolute; top: 50%; left: 43.5%; width: 13%; height: clamp(320px, 70vh, 640px); transform: rotate(-22deg); transform-origin: top center; object-fit: fill; z-index: 1; }
 
-    /* SHARED */
-    .section-label { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--coral); font-weight: 500; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.7rem; }
-    .section-label::before { content: ''; display: block; width: 22px; height: 1px; background: currentColor; }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.1rem, 3.8vw, 3.6rem); font-weight: 300; line-height: 1.1; color: var(--ink); }
-    .section-title em { font-style: italic; color: var(--coral); }
-
-    /* SERVICES — light warm brown */
-    .services { padding: 7rem 4.5rem; background: var(--svc-bg); }
-    .services .section-label { color: var(--coral-d); }
-    .services-intro { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 1.5rem; }
-    .services-tagline { font-size: 0.9rem; line-height: 1.7; color: var(--mid); max-width: 300px; }
-    .services-languages { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.8rem; font-size: 1.8rem; letter-spacing: 0.14em; color: var(--mid); font-weight: 500; }
-    .services-languages span { font-size: 0.72rem; text-transform: uppercase; color: var(--coral-d); }
-    .services-languages span { color: var(--coral-d); }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
-    .service-card { background: var(--svc-card); padding: 2.5rem 2rem; border: 3mm solid #ffffff; border-radius: 20px; transition: all 0.3s; position: relative; overflow: hidden; }
-    .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--coral); transition: width 0.4s; }
-    .service-card:hover::after { width: 100%; }
-    .service-card:hover { background: rgba(232,98,58,0.07); }
-    .service-icon { font-size: 1.4rem; margin-bottom: 1.2rem; color: var(--coral); }
-    .service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--ink); margin-bottom: 0.8rem; }
-    .service-desc { font-size: 0.84rem; line-height: 1.75; color: var(--mid); }
-    .service-price { margin-top: 1.4rem; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral-d); }
-
-    /* PORTFOLIO */
-    .portfolio { padding: 7rem 0 5rem; background: var(--white); }
-    .portfolio-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; padding: 0 4.5rem; flex-wrap: wrap; gap: 1.5rem; }
-    .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .filter-btn { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; padding: 0.5rem 1.2rem; border-radius: 40px; border: 1px solid rgba(30,22,20,0.18); background: transparent; color: var(--mid); cursor: pointer; transition: all 0.2s; font-family: 'Jost', sans-serif; }
-    .filter-btn:hover, .filter-btn.active { background: var(--coral); border-color: var(--coral); color: var(--white); }
-
-    /* ── CAROUSEL: simple overflow-x scroll ── */
-    .carousel-viewport {
-      overflow-x: scroll;
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      padding: 0.25rem 4.5rem 1rem;
-      cursor: grab;
-    }
-    .carousel-viewport::-webkit-scrollbar { display: none; }
-    .carousel-viewport.grabbing { cursor: grabbing; }
-
-    .carousel-track {
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      /* width is set by JS once cards are measured */
-    }
-
-    /* Every card: fixed pixel height, width set in JS */
-    .p-card {
-      flex-shrink: 0;
-      height: 260px;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      background: var(--blush);
-      box-shadow: 0 2px 14px rgba(30,22,20,0.07);
-      transition: box-shadow 0.3s, transform 0.3s;
-    }
-    .p-card:hover { box-shadow: 0 10px 32px rgba(232,98,58,0.2); transform: translateY(-4px); }
-    .p-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; transition: transform 0.55s; }
-    .p-card:hover img { transform: scale(1.06); }
-    .p-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,12,10,0.88) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.3rem; }
-    .p-card:hover .p-card-overlay { opacity: 1; }
-    .p-card-badge { position: absolute; top: 0.85rem; left: 0.85rem; background: rgba(253,252,251,0.93); border-radius: 40px; padding: 0.26rem 0.8rem; font-size: 0.59rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--coral); font-weight: 500; }
-    .p-card-cat { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral-l); margin-bottom: 0.28rem; }
-    .p-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-weight: 600; color: var(--white); line-height: 1.2; }
-    .p-card-result { font-size: 0.67rem; color: rgba(253,252,251,0.6); margin-top: 0.25rem; }
-
-    /* Carousel footer: dots + arrows */
-    .carousel-footer { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; padding: 0.8rem 4.5rem 0; }
-    .carousel-dots { display: flex; gap: 0.4rem; align-items: center; }
-    .c-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(30,22,20,0.15); border: none; cursor: pointer; padding: 0; transition: background 0.2s, width 0.25s; flex-shrink: 0; }
-    .c-dot.active { background: var(--coral); width: 20px; border-radius: 4px; }
-    .carousel-arrows { display: flex; gap: 0.5rem; }
-    .c-btn { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid rgba(30,22,20,0.18); background: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.95rem; color: var(--ink); transition: all 0.2s; }
-    .c-btn:hover { background: var(--coral); border-color: var(--coral); color: var(--white); }
-
-    /* PROCESS */
-    .process { padding: 7rem 4.5rem; background: var(--off); }
-    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 4rem; }
-    .step { padding-top: 1.5rem; border-top: 1.5px solid rgba(30,22,20,0.1); }
-    .step:first-child { border-color: var(--coral); }
-    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(30,22,20,0.1); line-height: 1; margin-bottom: 0.5rem; }
-    .step-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); margin-bottom: 0.7rem; }
-    .step-desc { font-size: 0.84rem; line-height: 1.75; color: var(--mid); }
-
-    /* TESTIMONIALS */
-    .testimonials { padding: 6rem 4.5rem; background: var(--white); }
-    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
-    .testi-card { background: var(--blush); border-radius: 12px; padding: 2rem; border: 1px solid rgba(232,98,58,0.1); }
-    .testi-stars { color: var(--coral); font-size: 0.8rem; margin-bottom: 1rem; }
-    .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; font-weight: 300; color: var(--ink); line-height: 1.65; margin-bottom: 1.5rem; }
-    .testi-author { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); }
-
-    /* CONTACT */
-    .contact { padding: 7rem 4.5rem; background: var(--warm-bg); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-    .contact .section-label { color: var(--coral-d); }
-    .contact .section-title em { color: var(--coral-d); }
-    .contact-tagline { font-size: 0.92rem; line-height: 1.75; color: var(--warm-mid); margin-top: 1.5rem; }
-    .contact-info { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
-    .contact-info-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.82rem; color: var(--warm-mid); }
-    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-    label { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--warm-mid); }
-    input, textarea, select { background: rgba(253,252,251,0.78); border: 1px solid rgba(122,92,74,0.22); color: var(--ink); padding: 0.85rem 1rem; border-radius: 6px; font-size: 0.88rem; font-family: 'Jost', sans-serif; outline: none; transition: border-color 0.2s; width: 100%; }
-    input:focus, textarea:focus, select:focus { border-color: var(--coral); }
-    textarea { resize: vertical; min-height: 110px; }
-    select option { background: var(--white); color: var(--ink); }
-    input::placeholder, textarea::placeholder { color: rgba(107,92,87,0.4); }
-    .submit-btn { margin-top: 0.5rem; background: var(--coral); color: var(--white); border: none; padding: 1rem 2rem; border-radius: 40px; font-size: 0.76rem; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500; cursor: pointer; transition: all 0.25s; width: 100%; }
-    .submit-btn:hover { background: var(--coral-d); transform: translateY(-2px); }
-
-    /* FOOTER */
-    footer { background: var(--ink); padding: 2rem 4.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    footer .nav-logo { font-size: 1.2rem; color: var(--white); }
-    footer p { font-size: 0.7rem; color: rgba(253,252,251,0.28); letter-spacing: 0.06em; }
-    .social-links { display: flex; gap: 1.5rem; }
-    .social-links a { font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(253,252,251,0.35); text-decoration: none; transition: color 0.2s; }
-    .social-links a:hover { color: var(--coral); }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes zoomIn  { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: scale(1); } }
+    /* ── SHARED SECTION STYLES ── */
+    section { padding: 6.5rem 4.5rem; }
+    .section-heading { font-family: 'KK Display', Georgia, serif; font-weight: 400; font-size: clamp(2.4rem, 4.6vw, 3.9rem); line-height: 1.12; color: var(--cyan); margin-bottom: 1.2rem; }
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* DARK MODE */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --white:    #1a1210;
-        --off:      #211815;
-        --blush:    #2a1f1b;
-        --rose:     #3d2218;
-        --stone:    #b8a9a2;
-        --ink:      #f0e8e3;
-        --mid:      #c0aca5;
-        --svc-bg:   #221816;
-        --svc-card: #2d1e18;
-        --warm-bg:  #201510;
-        --warm-mid: #c4a898;
-      }
-      nav.scrolled { background: rgba(20,14,12,0.96); }
-      footer { background: #0e0a09; }
-      input, textarea, select { background: rgba(45,30,24,0.7); border-color: rgba(192,172,165,0.2); }
-      #hero-wrap { background: #0d0b0a; }
-      .hero-tag { background: rgba(232,98,58,0.18); color: var(--coral-l); }
-      .step { border-top-color: rgba(240,232,227,0.1); }
-      .step:first-child { border-top-color: var(--coral); }
-      .step-num { color: rgba(240,232,227,0.08); }
-      .hero-stats { border-top-color: rgba(240,232,227,0.08); }
-      .testi-card { border-color: rgba(232,98,58,0.18); }
-      .p-card-badge { background: rgba(26,18,16,0.9); }
+    /* ── ABOUT — copied verbatim from the Canva site ── */
+    .about { background: var(--white); display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: 8rem; align-items: center; max-width: 1200px; margin: 0 auto; padding-top: 8rem; padding-bottom: 8rem; }
+    .about-text p { font-size: 1.02rem; line-height: 1.75; color: var(--gray); margin-bottom: 1.4rem; max-width: 34rem; }
+    .about-media { position: relative; margin-bottom: 1rem; order: -1; }
+    .about-photo { overflow: hidden; border-radius: 34px; }
+    .about-media .sea { width: 100%; display: block; transform: scale(1.03); transform-origin: center; }
+    .about-portrait { position: absolute; right: -4%; bottom: -22%; width: 52%; aspect-ratio: 506 / 483;
+      -webkit-mask-image: url('assets/img/portrait-mask.svg'); mask-image: url('assets/img/portrait-mask.svg');
+      -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; }
+    .about-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 10%; display: block; }
+
+    /* ── TRUSTED BY — logo marquee scrolling left → right ── */
+    .trusted { background: var(--white); padding-top: 9rem; padding-bottom: 2rem; text-align: center; }
+    .trusted-heading { font-family: 'KK Display', Georgia, serif; font-weight: 700; font-size: clamp(1.5rem, 2.6vw, 2.1rem); color: var(--muted); margin-bottom: 3rem; }
+    .marquee { overflow: hidden; position: relative; background: var(--white); padding: 0.8rem 3rem; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); filter: drop-shadow(0 6px 12px rgba(94, 83, 67, 0.12)); }
+    .marquee-track { display: flex; align-items: center; gap: 5.5rem; width: max-content; animation: marquee-ltr 32s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-track img { height: 34px; width: auto; flex-shrink: 0; }
+    .marquee-track img.tall { height: 46px; }
+    /* moves left → right */
+    @keyframes marquee-ltr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+    /* ── SERVICES / WHAT I OFFER — four blocks like the hand-drawn guide ── */
+    .services { background: #F6EAD9; padding-top: 1.5rem; }
+    .services-intro { text-align: center; margin-bottom: 4rem; }
+    .services-intro .section-heading { color: var(--white); text-shadow: 0 2px 3px rgba(94, 83, 67, 0.3), 0 5px 10px rgba(94, 83, 67, 0.15); }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.2rem; max-width: 1200px; margin: 0 auto; }
+    .service-block { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .service-card { background: var(--white); border-radius: 26px; padding: 1.6rem 1.4rem 1.4rem; box-shadow: 0 6px 16px rgba(43,43,43,0.06); display: flex; flex-direction: column; align-items: center; }
+    .service-media { width: 78%; max-width: 200px; aspect-ratio: 350 / 500; border-radius: 999px; overflow: hidden; background: var(--teal-tint); position: relative;
+      border: 9px solid #e4e4e4; box-shadow: inset 0 0 16px rgba(0,0,0,0.22), inset 0 0 3px rgba(0,0,0,0.3), 0 6px 14px rgba(43,43,43,0.15); }
+    .service-media img, .service-media video { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; overflow-clip-margin: unset; }
+    /* ── window shade: covers the photo, slides up to reveal it on scroll ── */
+    .window-shade { position: absolute; inset: 0; z-index: 3; border-radius: 999px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F0F0F0 100%);
+      box-shadow: inset 0 -6px 10px rgba(0,0,0,0.08);
+      transition: transform 0.9s cubic-bezier(0.65,0,0.35,1); }
+    .window-shade::before { content: ''; position: absolute; inset: 0; border-radius: 999px;
+      background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.055) 0 2px, transparent 2px 11px);
+      pointer-events: none; }
+    .window-shade::after { content: ''; position: absolute; bottom: 12%; left: 50%; transform: translateX(-50%);
+      width: 28%; height: 6px; border-radius: 3px; background: #cfcfcf; box-shadow: 0 1px 2px rgba(0,0,0,0.25); }
+    .service-media.shade-open .window-shade { transform: translateY(-115%); }
+    .service-name { font-size: 1.12rem; font-weight: 400; color: var(--gray); margin: 1.6rem 0 0; line-height: 1.35; }
+    .service-block .pill { font-size: 0.9rem; padding: 0.62rem 1.9rem; margin-top: 1.6rem; }
+
+    /* ── CERTIFICATES ── */
+    .certificates { background: var(--white); text-align: center; padding-top: 1.6rem; padding-bottom: 1.6rem; }
+    .cert-grid { display: flex; justify-content: center; gap: 1.4rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .cert-card { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; width: 130px; }
+    .cert-logo { width: 68px; height: 68px; border-radius: 50%; background: var(--white); border: 1px solid #E0E0E0; display: flex; align-items: center; justify-content: center; padding: 0.9rem; }
+    .cert-logo img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+    .cert-name { font-weight: 700; color: var(--taupe); font-size: 0.78rem; }
+    .cert-issuer { font-size: 0.7rem; color: var(--muted); margin-top: -0.3rem; }
+
+    /* ── CASE STUDY — Brand Awareness: Alapihan Puutarha ── */
+    .case-study { background: var(--white); display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .case-title { font-family: 'KK Display', Georgia, serif; font-weight: 400; font-size: clamp(2.4rem, 4.6vw, 3.9rem); line-height: 1.15; color: var(--taupe); margin-bottom: 2rem; }
+    .case-sub { font-size: 1.3rem; color: var(--taupe); margin-bottom: 1.2rem; }
+    .case-list { list-style: disc; padding-left: 1.4rem; color: var(--taupe); font-size: 1.02rem; line-height: 2.1; }
+    .case-readmore { display: inline-block; margin-top: 2rem; color: var(--taupe); font-size: 1rem; text-decoration: underline; }
+    .case-readmore:hover { color: var(--cyan); }
+    .case-media { text-align: center; }
+    .phone-mockup { margin: 0 auto; position: relative; width: min(280px, 80%); background: #1c1c1e; border-radius: 44px; padding: 13px; box-shadow: 0 0 0 2px #3a3a3c, 0 24px 60px rgba(0,0,0,0.25); }
+    .phone-mockup::before { content: ''; position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: 74px; height: 6px; background: #3a3a3c; border-radius: 3px; z-index: 2; }
+    .phone-screen { border-radius: 32px; overflow: hidden; background: #000; aspect-ratio: 590 / 1280; }
+    .phone-screen video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .case-socials { display: flex; justify-content: center; gap: 1.6rem; margin-top: 2rem; }
+    .case-socials a { width: 52px; height: 52px; border-radius: 50%; background: var(--yellow); display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+    .case-socials a:hover { transform: translateY(-3px); }
+    .case-socials svg { width: 26px; height: 26px; fill: var(--white); }
+
+    /* ── RECOMMENDATIONS (from LinkedIn) ── */
+    .recs { background: var(--white); }
+    .recs-intro { text-align: center; margin-bottom: 3.5rem; }
+    .recs-intro p { color: var(--muted); }
+    .recs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; max-width: 1200px; margin: 0 auto; }
+    .rec-card { background: var(--teal-tint); border-radius: 22px; padding: 2rem; display: flex; flex-direction: column; }
+    .rec-quote { font-family: 'KK Display', Georgia, serif; font-size: 2.6rem; line-height: 1; color: var(--teal); }
+    .rec-text { font-size: 0.95rem; line-height: 1.7; color: var(--gray); margin: 0.6rem 0 1.4rem; flex: 1; }
+    .rec-toggle { background: none; border: none; padding: 0; margin-left: 0.15rem; color: var(--cyan); font-weight: 700; font-size: inherit; font-family: inherit; cursor: pointer; }
+    .rec-toggle:hover { text-decoration: underline; }
+    .rec-full { display: none; margin-top: 0.9rem; }
+    .rec-full p { margin-bottom: 0.9rem; }
+    .rec-full p:last-child { margin-bottom: 0; }
+    .rec-card.expanded .rec-full { display: block; }
+    .rec-author { font-weight: 700; color: var(--taupe); font-size: 0.9rem; }
+    .rec-role { font-size: 0.8rem; color: var(--muted); }
+    .recs-cta { text-align: center; margin-top: 2.6rem; }
+    .recs-cta a { color: var(--cyan); text-decoration: underline; font-size: 0.95rem; }
+
+    /* ── CONTACT — styled like the Canva contact section, form kept ── */
+    .contact { background: var(--teal); display: grid; grid-template-columns: 1.15fr 1fr; gap: 5rem; align-items: start; padding-top: 7.5rem; padding-bottom: 7.5rem; }
+    .contact-heading { font-family: 'KK Display', Georgia, serif; font-weight: 400; font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: 1.14; color: var(--white); margin-bottom: 3.5rem; }
+    .contact-details { display: flex; gap: 6rem; flex-wrap: wrap; }
+    .contact-label { color: var(--white); font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .contact-value { color: #6d6d6d; font-size: 1rem; }
+    .contact-value a { color: #6d6d6d; text-decoration: underline; }
+    .contact-value a:hover { color: var(--white); }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white); font-weight: 700; }
+    input, textarea, select { background: rgba(255,255,255,0.92); border: none; color: var(--ink); padding: 0.9rem 1rem; border-radius: 12px; font-size: 0.92rem; font-family: 'KK Sans', sans-serif; outline: none; transition: box-shadow 0.2s; width: 100%; }
+    input:focus, textarea:focus, select:focus { box-shadow: 0 0 0 3px rgba(12,192,223,0.45); }
+    textarea { resize: vertical; min-height: 110px; }
+    input::placeholder, textarea::placeholder { color: rgba(43,43,43,0.35); }
+    .submit-btn { margin-top: 0.6rem; width: 100%; }
+
+    /* ── ANIMATION UTILITIES ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .marquee-track { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      #greeting { transition: none; }
     }
 
-    /* MOBILE */
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      #hero-wrap { height: clamp(280px, 60vw, 420px); }
-      .banner-overlay { padding: 0 1.8rem; }
-      .hero { padding: 3.5rem 1.5rem 3rem; }
-      .hero-lower { grid-template-columns: 1fr; gap: 2rem; }
-      .phones-row { flex-wrap: wrap; }
-      .services, .process, .testimonials, .contact { padding: 4rem 1.5rem; }
-      .portfolio { padding: 4rem 0 3rem; }
-      .portfolio-header { padding: 0 1.5rem; flex-direction: column; align-items: flex-start; }
-      .carousel-viewport { padding: 0.25rem 1.5rem 1rem; }
-      .carousel-footer { padding: 0.8rem 1.5rem 0; }
-      .services-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr 1fr; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .contact { grid-template-columns: 1fr; gap: 2.5rem; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { padding: 1.8rem 1.5rem; flex-direction: column; text-align: center; }
+    /* ── MOBILE ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .recs-grid { grid-template-columns: 1fr; }
     }
-    @media (max-width: 540px) {
-      .process-steps { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      nav { padding: 1.1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 4rem 1.5rem; }
+      #hero-wrap { min-height: clamp(560px, 85vh, 760px); }
+      #hero-content { min-height: clamp(560px, 85vh, 760px); max-width: 100%; padding: 6rem 1.5rem 3rem; }
+      .dandelion { top: 68px; right: -4%; width: 44vw; opacity: 0.85; }
+      .about { grid-template-columns: 1fr; gap: 3rem; }
+      .about-media { margin-bottom: 4.5rem; max-width: 480px; order: 0; }
+      .case-study { grid-template-columns: 1fr; gap: 3rem; }
+      .contact { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-details { gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .marquee-track { gap: 3rem; }
+      .marquee-track img { height: 40px; }
+      .marquee-track img.tall { height: 56px; }
+    }
+    @media (max-width: 560px) {
+      .services-grid { grid-template-columns: 1fr; max-width: 320px; }
     }
   </style>
 </head>
 <body>
- 
-<!-- NAV -->
+
+<!-- NAV — non-sticky -->
 <nav>
-  <a href="#" class="nav-logo">Kokkonen Design</a><!-- BRAND NAME: change "her·studio" here -->
+  <a href="#" class="nav-logo">Kokkonen Design</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#work">Work Samples</a></li>
+    <li><a href="#certificates">Certificates</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Let's work together</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
@@ -319,430 +273,252 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="close-menu" id="closeMenu">✕</button>
-  <a href="#about"     onclick="closeMobile()">About</a>
-  <a href="#services"  onclick="closeMobile()">Services</a>
-  <a href="#portfolio" onclick="closeMobile()">Work</a>
-  <a href="#contact"   onclick="closeMobile()">Contact</a>
+  <button class="close-menu" id="closeMenu" aria-label="Close menu">✕</button>
+  <a href="#services"     onclick="closeMobile()">Services</a>
+  <a href="#work"         onclick="closeMobile()">Work Samples</a>
+  <a href="#certificates" onclick="closeMobile()">Certificates</a>
+  <a href="#contact"      onclick="closeMobile()">Contact</a>
 </div>
 
-<!-- BANNER — animated floating bubbles -->
+<!-- HERO — teal Canva palette, dandelion design, rotating hellos -->
 <div id="hero-wrap">
-  <canvas id="pcanvas"></canvas>
+  <div class="dandelion" aria-hidden="true">
+    <img class="flower" src="assets/img/dandelion-flower.svg" alt="" width="257" height="259" decoding="async" />
+    <img class="stem" src="assets/img/dandelion-stem.png" alt="" width="125" height="900" decoding="async" />
+  </div>
   <div id="hero-content">
+    <p class="banner-nametag">Katariina Kokkonen</p>
     <p class="banner-eyebrow">Marketing Specialist</p>
     <h2 class="banner-name"><span id="greeting">Hello</span></h2>
     <p class="banner-tagline">Welcome to my page</p>
-    <a href="#contact" class="btn-primary" style="margin-top:2rem; pointer-events:auto;">Start a Project</a>
+    <a class="pill pill-white hero-linkedin" href="https://www.linkedin.com/in/katariinakokkonen/" target="_blank" rel="noopener"><span>LinkedIn</span></a>
   </div>
 </div>
 
-<!-- ABOUT ME — text only, no photo -->
-<section class="hero" id="about">
-  <p class="hero-eyebrow">About Me</p>
-  <h1 class="hero-name">
-    Hi, I'm <em>Kata</em> —<!-- CHANGE YOUR NAME HERE -->
-    <br><strong>Marketing Specialist.</strong><!-- CHANGE YOUR TITLE HERE -->
-  </h1>
-  <div class="hero-lower">
-    <p class="hero-bio">
-      <!-- CHANGE YOUR BIO HERE -->
-      <strong>A Finn shaped by years abroad — bringing the best of both worlds to everything I do!</strong> Over 7 years in marketing across big FMCG, healthcare, and tech companies, all the way to a small family-owned greenhouse. I've worked across every marketing function, so wherever you're at, I get it. Whether you're in a regulated industry or just getting started as a startup, I create content and campaigns that actually fit your world. I love exploring new technology — AI included — and weaving it into everything I do. (Yes, I used Claude Code to build this site.) Easy to work with, curious by nature. Let's have a chat and get to know each other — you can book a 30min call below.
-    </p>
-    <div class="hero-right-col">
-
-      <div class="hero-actions">
-        <a href="#portfolio" class="btn-primary">See My Work</a>
-        <a href="#contact" class="btn-secondary">Start a Project</a>
-      </div>
-    </div>
+<!-- ABOUT — copied verbatim from the Canva site, photos included -->
+<section class="about" id="about">
+  <div class="about-text reveal">
+    <h1 class="section-heading">Who Am I?</h1>
+    <p>I am a Finnish marketing professional with 7 years of experience in various marketing roles, ranging from graphic design to branding and project management.</p>
+    <p>I have worked in B2C/B2B advertising, FMCG, and SAAS/Tech sectors. Proven project manager experience with branding success. Experience in team leadership website development, content creation, social media, and data- driven decisions. Lets work together!</p>
+    <p>Today, as a new career direction, I aspire to work as a marketing specialist catering to the diverse needs of clients, both in Finland and abroad.</p>
   </div>
-  <div class="phones-section">
-    <h3 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,4vw,3.6rem); font-weight:300; line-height:1.1; color:var(--ink); margin-bottom:1.5rem;">Social Media skills from: Facebook, Instagram to Tiktok</h3>
-    <div class="phones-row">
-      <div class="phone-mockup">
-        <div class="phone-screen">
-          <iframe
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Falapihanpuutarha&tabs=timeline&width=232&height=460&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=false"
-            width="232"
-            height="460"
-            style="border:none;overflow:hidden;display:block;"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-          </iframe>
-        </div>
-      </div>
-      <div class="phone-mockup">
-        <div class="phone-screen">
-          <video
-            src="ScreenRecording_05-23-2026 19-54-01_1.mov"
-            autoplay
-            loop
-            muted
-            playsinline
-            style="width:100%;height:100%;object-fit:cover;display:block;">
-          </video>
-        </div>
-      </div>
-      <a href="https://www.tiktok.com/@empanadas.travel?lang=en" target="_blank" rel="noopener" class="phone-mockup phone-link">
-        <div class="phone-screen phone-tiktok">
-          <div class="tiktok-inner">
-            <div class="tiktok-logo-wrap">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z" fill="white"/>
-              </svg>
-            </div>
-            <p class="tiktok-handle">@empanadas.travel</p>
-            <p class="tiktok-sub">View on TikTok</p>
-            <span class="tiktok-btn">Open Profile</span>
-          </div>
-        </div>
-      </a>
+  <div class="about-media reveal">
+    <div class="about-photo">
+      <img class="sea" src="assets/img/about-sea.jpg" alt="Katariina by the sea in Lagos, Portugal" width="739" decoding="async" />
     </div>
-  </div>
-  <!-- STATS: change the numbers and labels below -->
-  <div class="hero-stats" id="stats"><!-- STATS -->
-    <div><div class="stat-num">120+</div><div class="stat-label">Campaigns run</div></div>
-    <div><div class="stat-num">48M</div><div class="stat-label">Impressions driven</div></div>
-    <div><div class="stat-num">97%</div><div class="stat-label">Client retention</div></div>
+    <div class="about-portrait">
+      <img src="assets/img/about-portrait.jpg" alt="Portrait of Katariina Kokkonen" width="540" height="720" decoding="async" />
+    </div>
   </div>
 </section>
 
-<!-- SERVICES — light warm brown -->
+<!-- SERVICES / WHAT I OFFER — blocks per the hand-drawn guide -->
 <section class="services" id="services">
   <div class="services-intro reveal">
-    <div>
-      <p class="section-label">What I Offer</p>
-      <h2 class="section-title">Services built for <em>real impact</em></h2>
-      <p class="services-languages">🇺🇸 🇫🇮 <span>Languages</span></p>
-    </div>
+    <h2 class="section-heading">Services</h2>
   </div>
-  <!-- SERVICE CARDS: edit name, description and price for each card -->
   <div class="services-grid">
-    <a href="#contact" class="service-card reveal" style="text-decoration:none; padding:0; overflow:hidden;">
-      <img src="img_2725.jpg" alt="Content Curation sample" style="width:100%; height:200px; object-fit:cover; display:block;" />
-      <div style="padding:1.2rem 1.4rem 1.4rem;">
-        <div class="service-name">Content Curation</div>
-        <p class="service-desc">Print and digital material to support your business. Not to forget source files and guidelines delivered to you.</p>
-        <p class="service-price">From 30EUR/hour</p>
+    <div class="service-block reveal">
+      <div class="service-card">
+        <div class="service-media">
+          <img src="assets/img/service-social-media.jpg" alt="Event at Alapihan Puutarha garden" width="373" height="533" loading="lazy" decoding="async" />
+          <div class="window-shade"></div>
+        </div>
+        <p class="service-name">Social Media<br />Content</p>
       </div>
-    </a>
-    <div class="service-card reveal" style="padding:0; overflow:hidden;">
-      <video src="social_media_sample.mov" autoplay loop muted playsinline style="width:100%; height:200px; object-fit:cover; object-position:center 20%; display:block;"></video>
-      <div style="padding:1.2rem 1.4rem 1.4rem;">
-        <div class="service-name">Social Media and AI</div>
-        <p class="service-desc">Social media page content creation, ideation and community building. Analytics.</p>
-        <p class="service-price">From 30EUR/hour</p>
-      </div>
+      <a class="pill pill-babyblue" href="social-media-content.html">Samples</a>
     </div>
-    <div class="service-card reveal">
-      <div class="service-name">Paid Campaigns</div>
-      <p class="service-desc">Setting up and managing Meta, LinkedIn and TikTok ads. Sends weekly reporting.</p>
-      <p class="service-price">From 30EUR/hour</p>
+    <div class="service-block reveal">
+      <div class="service-card">
+        <div class="service-media">
+          <img src="assets/img/service-event-management.jpg" alt="Katariina at a GE HealthCare conference booth" width="910" height="1215" loading="lazy" decoding="async" style="height: 130%; margin-top: -30px;" />
+          <div class="window-shade"></div>
+        </div>
+        <p class="service-name">Event<br />Management</p>
+      </div>
+      <a class="pill pill-babyblue" href="https://drive.google.com/file/d/1qMhz7Inp61fIfkfR4D12gCliD6N46cmx/view?usp=sharing" target="_blank" rel="noopener">Samples</a>
+    </div>
+    <div class="service-block reveal">
+      <div class="service-card">
+        <div class="service-media">
+          <img src="assets/img/service-graphic-design.jpg" alt="Printed leaflets and posters designed for GE HealthCare" width="546" height="780" loading="lazy" decoding="async" />
+          <div class="window-shade"></div>
+        </div>
+        <p class="service-name">Graphic<br />Design</p>
+      </div>
+      <a class="pill pill-babyblue" href="https://drive.google.com/file/d/1JXjqSvORLjnT2InTJ5fufkKyHMpyu1ek/view?usp=sharing" target="_blank" rel="noopener">Samples</a>
+    </div>
+    <div class="service-block reveal">
+      <div class="service-card">
+        <div class="service-media">
+          <img src="assets/img/service-project-management.jpg" alt="Project plan and timeline on a clipboard" width="800" height="533" loading="lazy" decoding="async" />
+          <div class="window-shade"></div>
+        </div>
+        <p class="service-name">Project<br />Management</p>
+      </div>
+      <a class="pill pill-babyblue" href="https://drive.google.com/file/d/1qMhz7Inp61fIfkfR4D12gCliD6N46cmx/view?usp=sharing" target="_blank" rel="noopener">Samples</a>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO CAROUSEL -->
-<section class="portfolio" id="portfolio">
-  <div class="portfolio-header reveal">
-    <div>
-      <p class="section-label">Selected Work</p>
-      <h2 class="section-title">Work that speaks <em>loud</em></h2>
-    </div>
-    <div class="filter-tabs">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="brand">Branding</button>
-      <button class="filter-btn" data-filter="social">Social</button>
-      <button class="filter-btn" data-filter="ads">Paid Ads</button>
-      <button class="filter-btn" data-filter="content">Content</button>
-    </div>
-  </div>
-
-  <div class="carousel-viewport" id="carouselViewport">
-    <div class="carousel-track" id="carouselTrack">
-      <!-- PORTFOLIO CARDS: edit category (data-cat), image src, badge, title and result for each card -->
-      <!-- data-cat options: brand | social | ads | content -->
-
-      <div class="p-card" data-cat="brand">
-        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&q=80" alt="Brand project" />
-        <span class="p-card-badge">Branding</span>
-        <div class="p-card-overlay">
-          <p class="p-card-cat">Brand Relaunch</p>
-          <p class="p-card-title">Nova Consumer Goods — Full Rebrand</p>
-          <p class="p-card-result">↑ Brand awareness +84% in 3 months</p>
-        </div>
-      </div>
-
-      <div class="p-card" data-cat="social">
-        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=700&q=80" alt="Social campaign" />
-        <span class="p-card-badge">Social</span>
-        <div class="p-card-overlay">
-          <p class="p-card-cat">Social Media</p>
-          <p class="p-card-title">Bloom Wellness — Audience Growth</p>
-          <p class="p-card-result">↑ 900% follower growth in 6 months</p>
-        </div>
-      </div>
-
-      <div class="p-card" data-cat="ads">
-        <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=700&q=80" alt="Paid ads" />
-        <span class="p-card-badge">Paid Ads</span>
-        <div class="p-card-overlay">
-          <p class="p-card-cat">Performance Marketing</p>
-          <p class="p-card-title">Apex SaaS — Meta & Google</p>
-          <p class="p-card-result">↑ 4.2× ROAS, -38% CAC</p>
-        </div>
-      </div>
-
-      <div class="p-card" data-cat="content">
-        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=700&q=80" alt="Content strategy" />
-        <span class="p-card-badge">Content</span>
-        <div class="p-card-overlay">
-          <p class="p-card-cat">Content Strategy</p>
-          <p class="p-card-title">Meridian Bank — Thought Leadership</p>
-          <p class="p-card-result">↑ Organic traffic +220% YoY</p>
-        </div>
-      </div>
-
-      <div class="p-card" data-cat="brand">
-        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=700&q=80" alt="Event" />
-        <span class="p-card-badge">Branding</span>
-        <div class="p-card-overlay">
-          <p class="p-card-cat">Event Marketing</p>
-          <p class="p-card-title">Noor Fashion — Launch Campaign</p>
-          <p class="p-card-result">↑ 15K UGC posts generated</p>
-        </div>
-      </div>
-
-      <div class="p-card" data-cat="social">
-        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80" alt="ecommerce" />
-        <span class="p-card-badge">Social</span>
-        <div class="p-card-overlay">
-          <p class="p-card-cat">E-commerce</p>
-          <p class="p-card-title">Petal Beauty — TikTok Strategy</p>
-          <p class="p-card-result">↑ $1.2M revenue from organic content</p>
-        </div>
-      </div>
-
-      <div class="p-card" data-cat="ads">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="analytics" />
-        <span class="p-card-badge">Paid Ads</span>
-        <div class="p-card-overlay">
-          <p class="p-card-cat">Full-Funnel Campaign</p>
-          <p class="p-card-title">Stride Fintech — 50K Users</p>
-          <p class="p-card-result">↑ 50K signups in 90 days</p>
-        </div>
-      </div>
-
-    </div><!-- /carousel-track -->
-  </div><!-- /carousel-viewport -->
-
-  <div class="carousel-footer">
-    <div class="carousel-dots" id="carouselDots"></div>
-    <div class="carousel-arrows">
-      <button class="c-btn" id="cPrev" aria-label="Previous">←</button>
-      <button class="c-btn" id="cNext" aria-label="Next">→</button>
+<!-- TRUSTED BY — company logos scrolling left to right -->
+<section class="trusted" aria-label="Companies I have worked with">
+  <h2 class="trusted-heading display">Trusted by many along the years</h2>
+  <div class="marquee">
+    <div class="marquee-track">
+      <img class="logo logo-wt" src="assets/img/logo-wunderman-thompson.png" alt="Wunderman Thompson" width="356" height="160" loading="lazy" decoding="async" />
+      <img class="logo logo-ap" src="assets/img/logo-alapihan-puutarha.png" alt="Alapihan Puutarha" width="295" height="160" loading="lazy" decoding="async" />
+      <img class="logo logo-ihs" src="assets/img/logo-ihs.png" alt="IHS — Making cities work" width="341" height="148" loading="lazy" decoding="async" />
+      <img class="logo logo-ge" src="assets/img/logo-ge-healthcare.png" alt="GE HealthCare" width="718" height="160" loading="lazy" decoding="async" />
+      <img class="logo logo-se" src="assets/img/logo-schneider-electric.png" alt="Schneider Electric" width="542" height="160" loading="lazy" decoding="async" />
+      <!-- duplicate set for the seamless loop -->
+      <img class="logo logo-wt" src="assets/img/logo-wunderman-thompson.png" alt="" aria-hidden="true" width="356" height="160" loading="lazy" decoding="async" />
+      <img class="logo logo-ap" src="assets/img/logo-alapihan-puutarha.png" alt="" aria-hidden="true" width="295" height="160" loading="lazy" decoding="async" />
+      <img class="logo logo-ihs" src="assets/img/logo-ihs.png" alt="" aria-hidden="true" width="341" height="148" loading="lazy" decoding="async" />
+      <img class="logo logo-ge" src="assets/img/logo-ge-healthcare.png" alt="" aria-hidden="true" width="718" height="160" loading="lazy" decoding="async" />
+      <img class="logo logo-se" src="assets/img/logo-schneider-electric.png" alt="" aria-hidden="true" width="542" height="160" loading="lazy" decoding="async" />
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="process" id="process">
-  <div class="reveal">
-    <p class="section-label">How I Work</p>
-    <h2 class="section-title">A process that <em>delivers</em></h2>
-  </div>
-  <div class="process-steps">
-    <div class="step reveal"><div class="step-num">01</div><div class="step-name">Discovery</div><p class="step-desc">I dig into your brand, audience, competitors, and goals. No assumptions — just deep listening and honest analysis.</p></div>
-    <div class="step reveal"><div class="step-num">02</div><div class="step-name">Strategy</div><p class="step-desc">A clear roadmap with channels, messaging, timelines, and KPIs — built around your specific business objectives.</p></div>
-    <div class="step reveal"><div class="step-num">03</div><div class="step-name">Execution</div><p class="step-desc">Creative production, campaign launches, and hands-on management with weekly performance check-ins.</p></div>
-    <div class="step reveal"><div class="step-num">04</div><div class="step-name">Optimise</div><p class="step-desc">Continuous testing, iteration, and reporting to squeeze every last drop of performance from your budget.</p></div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="reveal">
-    <p class="section-label">Client Love</p>
-    <h2 class="section-title">What they're <em>saying</em></h2>
-  </div>
-  <!-- TESTIMONIAL CARDS: edit quote and author -->
-  <div class="testi-grid">
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"She didn't just run our campaigns — she completely changed how we think about our brand. Revenue up 210% in six months."</p>
-      <p class="testi-author">— Sarah K., CEO · Bloom Wellness</p>
+<!-- CASE STUDY — from the Canva page -->
+<section id="work">
+  <div class="case-study">
+    <div class="reveal">
+      <h2 class="case-title">Brand Awareness: Alapihan Puutarha</h2>
+      <p class="case-sub">Case Study</p>
+      <ul class="case-list">
+        <li>Social Media page creation</li>
+        <li>Logo planning and design</li>
+        <li>Marketing Materials</li>
+        <li>Modernizing brand image</li>
+        <li>Analytics</li>
+      </ul>
+      <a class="case-readmore" href="https://drive.google.com/file/d/1YEgwYLe2JxTpBZf6eTcuw4bFQxtJn7Kc/view" target="_blank" rel="noopener">Read more</a>
     </div>
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"Finally, a marketer who actually understands data AND creativity. Our paid ads have never performed this well."</p>
-      <p class="testi-author">— Tom R., Founder · Apex SaaS</p>
-    </div>
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"The TikTok strategy she built for us generated over a million in revenue. One of the best investments we've ever made."</p>
-      <p class="testi-author">— Lena M., CMO · Petal Beauty</p>
+    <div class="case-media reveal">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <video class="pillarboxed" src="assets/video/case-study-phone.mp4" autoplay loop muted playsinline></video>
+        </div>
+      </div>
+      <div class="case-socials">
+        <a href="https://www.instagram.com/alapihanpuutarha/" target="_blank" rel="noopener" aria-label="Alapihan Puutarha on Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2m0-2.2C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.92 5.92 0 0 0-2.14 1.4A5.92 5.92 0 0 0 .6 4.16C.31 4.93.11 5.8.05 7.08 0 8.35 0 8.76 0 12s.01 3.65.07 4.92c.06 1.28.26 2.15.55 2.92.31.8.72 1.47 1.4 2.14a5.92 5.92 0 0 0 2.13 1.4c.77.3 1.64.5 2.92.55C8.35 24 8.76 24 12 24s3.65-.01 4.92-.07c1.28-.06 2.15-.26 2.92-.55a5.92 5.92 0 0 0 2.14-1.4 5.92 5.92 0 0 0 1.4-2.13c.3-.77.5-1.64.55-2.92.06-1.27.07-1.68.07-4.93s-.01-3.65-.07-4.92c-.06-1.28-.26-2.15-.55-2.92a5.92 5.92 0 0 0-1.4-2.14A5.92 5.92 0 0 0 19.85.6c-.77-.3-1.64-.5-2.92-.55C15.65 0 15.24 0 12 0z"/><path d="M12 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.15A4 4 0 1 1 16 12a4 4 0 0 1-4 3.99z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg>
+        </a>
+        <a href="https://www.facebook.com/alapihanpuutarha/" target="_blank" rel="noopener" aria-label="Alapihan Puutarha on Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.68.23 2.68.23v2.95H15.8c-1.49 0-1.95.92-1.95 1.87V12h3.32l-.53 3.47h-2.79v8.38A12 12 0 0 0 24 12z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- RECOMMENDATIONS — imported from LinkedIn -->
+<section class="recs" id="recommendations">
+  <div class="recs-intro reveal">
+    <h2 class="section-heading">Recommendations</h2>
+    <p>Received on <a href="https://www.linkedin.com/in/katariinakokkonen/" target="_blank" rel="noopener" style="color:var(--cyan);">LinkedIn</a></p>
+  </div>
+  <!-- PLACEHOLDER CARDS: replace the text, author and role of each card with the real
+       recommendations from https://www.linkedin.com/in/katariinakokkonen/details/recommendations/ -->
+  <div class="recs-grid">
+    <div class="rec-card reveal">
+      <div class="rec-quote" aria-hidden="true">&ldquo;</div>
+      <div class="rec-text">
+        <span class="rec-preview">Katariina reported directly to me in her role as Marketing Leader for Finland for a couple of years, and anyone would be lucky to have her in their team.</span><button class="rec-toggle" type="button" aria-expanded="false"> …</button>
+        <div class="rec-full">
+          <p>She continuously impresses me with her energy, creativity, and ability to turn ideas into action.</p>
+          <p>Katariina consistently goes above and beyond to support both the sales organization and our customers. She combines strategic thinking with an entrepreneurial mindset, always looking for innovative ways to engage audiences and drive results. Whether creating engaging video content at congresses, developing interactive booth activities, producing customer success stories, or exploring new marketing channels, she approaches every initiative with creativity and a strong customer focus.</p>
+          <p>At the same time, she successfully manages major industry events, user meetings, product launches, and a wide range of marketing programs. Despite this broad scope, she works independently, consistently delivers high-quality results, and effectively manages local compliance processes and budgets.</p>
+          <p>Katariina has made a significant impact on our results across the Nordic and Netherlands marketing team through her proactive approach, strong ownership mindset, and can-do attitude. I would recommend Katariina without hesitation to any organization.</p>
+        </div>
+      </div>
+      <p class="rec-author">Maria Dalgaard Matthiesen</p>
+      <p class="rec-role">Senior Marketing Manager Nordics, GE HealthCare</p>
+    </div>
+    <div class="rec-card reveal">
+      <div class="rec-quote" aria-hidden="true">&ldquo;</div>
+      <p class="rec-text">Highly communicative and flexible teamplayer. Open to work awkward hours, due to timezone differences. Very dedicated to the active projects and want to see them through whilst ensuring quality.</p>
+      <p class="rec-author">Andre Sundin</p>
+      <p class="rec-role">Digital UX Lead, Client in international FMCG</p>
+    </div>
+    <div class="rec-card reveal">
+      <div class="rec-quote" aria-hidden="true">&ldquo;</div>
+      <div class="rec-text">
+        <span class="rec-preview">Katariina is leading a marketing operational support on an Offer Creation project. She is managing Assets and Mkt communication media with an international team located partly in UK, India and Finland.</span><button class="rec-toggle" type="button" aria-expanded="false"> …</button>
+        <div class="rec-full">
+          <p>Her contribution to create, organise and manage marketing with business data were key to achieve project schedule and Quality expectations.</p>
+          <p>A sense of Communication and follow up with actions are a clear strength. All team members have noticed her capacity to scale up fast in knowledge and adapt to project high rate pace.</p>
+          <p>Team work and capacity to listen were well appreciated.</p>
+        </div>
+      </div>
+      <p class="rec-author">Zmago Korosec</p>
+      <p class="rec-role">Senior Project Manager, Schneider Electric</p>
+    </div>
+  </div>
+  <div class="recs-cta reveal">
+    <a href="https://www.linkedin.com/in/katariinakokkonen/" target="_blank" rel="noopener">View all recommendations on LinkedIn</a>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="certificates" id="certificates">
+  <div class="cert-grid">
+    <div class="cert-card reveal">
+      <div class="cert-logo"><img src="assets/img/cert-hubspot.svg" alt="HubSpot Academy logo" loading="lazy" decoding="async" /></div>
+      <p class="cert-name">Social Media Marketing</p>
+      <p class="cert-issuer">HubSpot Academy</p>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-logo"><img src="assets/img/cert-microsoft.svg" alt="Microsoft logo" loading="lazy" decoding="async" /></div>
+      <p class="cert-name">MS Excel Specialist</p>
+      <p class="cert-issuer">Microsoft</p>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-logo"><img src="assets/img/cert-toefl.svg" alt="TOEFL logo" loading="lazy" decoding="async" /></div>
+      <p class="cert-name">B2 English Language</p>
+      <p class="cert-issuer">TOEFL</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT — Canva contact section, form kept -->
 <section class="contact" id="contact">
-  <div class="contact-left reveal">
-    <p class="section-label">Get In Touch</p>
-    <h2 class="section-title">Ready to <em>grow?</em></h2>
-    <p class="contact-tagline">Tell me about your project. I typically respond within 24 hours and offer a free 30-minute strategy call for new clients.</p>
-    <!-- CONTACT INFO: edit email, location and availability -->
-    <div class="contact-info" id="contactInfo"><!-- CONTACT INFO -->
-      <div class="contact-info-item"><span>✉</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5139343d3d3e1139342322252435383e7f323e">[email&#160;protected]</a></div>
-      <div class="contact-info-item"><span>◎</span> Available worldwide, based in Amsterdam</div>
-      <div class="contact-info-item"><span>✦</span> Currently booking Q3 2026</div>
+  <div class="reveal">
+    <h2 class="contact-heading">Did this convince you? Get in touch with me, and let's chat!</h2>
+    <div class="contact-details">
+      <div>
+        <p class="contact-label">Email</p>
+        <p class="contact-value"><a href="mailto:kokkonen.katariina@outlook.com">kokkonen.katariina@outlook.com</a></p>
+      </div>
+      <div>
+        <p class="contact-label">LinkedIn</p>
+        <p class="contact-value"><a href="https://www.linkedin.com/in/katariinakokkonen/" target="_blank" rel="noopener">/Katariinakokkonen</a></p>
+      </div>
     </div>
   </div>
-  <div class="contact-form reveal">
+  <form class="contact-form reveal" action="mailto:kokkonen.katariina@outlook.com" method="post" enctype="text/plain">
     <div class="form-row">
-      <div class="form-field"><label>Your Name</label><input type="text" placeholder="Jane Smith" /></div>
-      <div class="form-field"><label>Email</label><input type="email" placeholder="jane@company.com" /></div>
+      <div class="form-field"><label>Your Name</label><input type="text" name="Name" placeholder="Jane Smith" required /></div>
+      <div class="form-field"><label>Email</label><input type="email" name="Email" placeholder="jane@company.com" required /></div>
     </div>
     <div class="form-field"><label>Service Needed</label>
-      <select>
-        <option>Brand Strategy</option><option>Social Media Management</option>
-        <option>Paid Advertising</option><option>Content Marketing</option>
-        <option>Full-Service Retainer</option><option>Other / Not Sure</option>
-      </select>
-    </div>
-    <div class="form-field"><label>Monthly Budget</label>
-      <select>
-        <option>Under $1,000</option><option>$1,000 – $3,000</option>
-        <option>$3,000 – $7,500</option><option>$7,500+</option>
+      <select name="Service Needed">
+        <option>Social Media Content</option><option>Event Management</option>
+        <option>Graphic Design</option><option>Project Management</option>
+        <option>Other / Not Sure</option>
       </select>
     </div>
     <div class="form-field"><label>Tell Me About Your Project</label>
-      <textarea placeholder="What are your goals? What have you tried before?"></textarea>
+      <textarea name="Project Details" placeholder="What are your goals? What have you tried before?"></textarea>
     </div>
-    <button class="submit-btn">Send Message →</button>
-  </div>
+    <button type="submit" class="pill pill-yellow submit-btn">Send Message →</button>
+  </form>
 </section>
 
-<footer>
-  <a href="#" class="nav-logo">Kokkonen Design</a><!-- BRAND NAME -->
-  <p>© 2026 Kokkonen Design. All rights reserved.</p>
-  <!-- SOCIAL LINKS: replace # with your real profile URLs -->
-  <div class="social-links"><!-- SOCIAL LINKS -->
-    <a href="#">Instagram</a>
-    <a href="#">LinkedIn</a>
-    <a href="#">TikTok</a>
-    <a href="#">Behance</a>
-  </div>
-</footer>
-
 <script>
-(function () {
-  const MAX_DIST = 155;
-  const PALETTE = [
-    { r: 232, g: 98,  b: 58  },
-    { r: 245, g: 177, b: 71  },
-    { r: 240, g: 232, b: 227 },
-    { r: 200, g: 80,  b: 40  },
-    { r: 255, g: 140, b: 60  },
-  ];
-
-  const canvas = document.getElementById('pcanvas');
-  const wrap   = document.getElementById('hero-wrap');
-  const ctx    = canvas.getContext('2d');
-  let W, H, nodes = [], animId;
-
-  function rand(a, b) { return a + Math.random() * (b - a); }
-
-  function createNode() {
-    const col = PALETTE[Math.floor(rand(0, PALETTE.length))];
-    return {
-      x: rand(0, W), y: rand(0, H),
-      vx: (Math.random() - 0.5) * 0.38,
-      vy: (Math.random() - 0.5) * 0.38,
-      r: rand(1.2, 2.8),
-      col,
-      pulse: rand(0, Math.PI * 2),
-      pulseSpeed: rand(0.008, 0.025),
-    };
-  }
-
-  function initNodes() {
-    nodes = [];
-    const count = Math.min(100, Math.max(55, Math.floor(W * H / 7000)));
-    for (let i = 0; i < count; i++) nodes.push(createNode());
-  }
-
-  function resize() {
-    W = wrap.offsetWidth;
-    H = wrap.offsetHeight || 580;
-    canvas.width  = W;
-    canvas.height = H;
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    ctx.fillStyle = '#0d0b0a';
-    ctx.fillRect(0, 0, W, H);
-
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < MAX_DIST) {
-          const alpha = (1 - dist / MAX_DIST) * 0.28;
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.strokeStyle = `rgba(232,98,58,${alpha})`;
-          ctx.lineWidth = 0.6;
-          ctx.stroke();
-        }
-      }
-    }
-
-    for (const p of nodes) {
-      p.pulse += p.pulseSpeed;
-      const alpha = 0.55 + 0.35 * Math.sin(p.pulse);
-
-      const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 9);
-      glow.addColorStop(0, `rgba(${p.col.r},${p.col.g},${p.col.b},${alpha * 0.22})`);
-      glow.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r * 9, 0, Math.PI * 2);
-      ctx.fillStyle = glow;
-      ctx.fill();
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.col.r},${p.col.g},${p.col.b},${alpha})`;
-      ctx.fill();
-
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < -20) p.x = W + 20;
-      if (p.x > W + 20) p.x = -20;
-      if (p.y < -20) p.y = H + 20;
-      if (p.y > H + 20) p.y = -20;
-    }
-
-    animId = requestAnimationFrame(draw);
-  }
-
-  function init() {
-    resize(); initNodes();
-    if (animId) cancelAnimationFrame(animId);
-    draw();
-  }
-
-  window.addEventListener('resize', init);
-  init();
-})();
-</script>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── Rotating greeting ── */
 (function () {
   const greetings = ['Hello', 'Hei', 'Hej', 'Привет', '你好', 'Hola', 'Bonjour', 'Hallo', 'Olá', 'Guten Tag'];
@@ -758,133 +534,53 @@
   }, 3000);
 })();
 
-/* ── Nav: transparent → white on scroll ── */
-const navEl = document.querySelector('nav');
-function updateNav() { navEl.classList.toggle('scrolled', window.scrollY > 60); }
-window.addEventListener('scroll', updateNav, { passive: true });
-updateNav();
-
 /* ── Scroll reveal ── */
 document.querySelectorAll('.reveal').forEach((el, i) => {
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) { setTimeout(() => el.classList.add('visible'), i % 4 * 80); }
+  new IntersectionObserver(([e], obs) => {
+    if (e.isIntersecting) { setTimeout(() => el.classList.add('visible'), i % 4 * 80); obs.disconnect(); }
   }, { threshold: 0.08 }).observe(el);
+});
+
+/* ── Airplane window shades: slide up in view, close back down once scrolled past ── */
+document.querySelectorAll('.service-media').forEach((el, i) => {
+  let openTimer = null;
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) {
+      openTimer = setTimeout(() => el.classList.add('shade-open'), 200 + i * 160);
+    } else {
+      clearTimeout(openTimer);
+      el.classList.remove('shade-open');
+    }
+  }, { threshold: 0.4 }).observe(el);
+});
+
+/* ── Recommendation read more / show less ── */
+document.querySelectorAll('.rec-toggle').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.rec-card');
+    const expanded = card.classList.toggle('expanded');
+    btn.setAttribute('aria-expanded', expanded);
+    btn.textContent = expanded ? ' Show less' : ' …';
+  });
+});
+
+/* ── Contact form: build a clean mailto: link instead of relying on native form-to-mailto submission ── */
+document.querySelector('.contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const get = (name) => (this.querySelector(`[name="${name}"]`).value || '').trim();
+  const name = get('Name');
+  const email = get('Email');
+  const service = get('Service Needed');
+  const details = get('Project Details');
+  const subject = `New inquiry from ${name || 'the website'} — ${service}`;
+  const body = `Name: ${name}\nEmail: ${email}\nService Needed: ${service}\n\nProject Details:\n${details}`;
+  window.location.href = `mailto:kokkonen.katariina@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
 
 /* ── Mobile menu ── */
 document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
 document.getElementById('closeMenu').addEventListener('click', closeMobile);
 function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
-
-/* ══════════════════════════════════════════
-   CAROUSEL
-   Uses native scrollLeft on the viewport.
-   Cards get their width assigned by JS so
-   they are always perfectly sized to show
-   ~2.5 cards at once, on any screen.
-══════════════════════════════════════════ */
-const viewport = document.getElementById('carouselViewport');
-const track    = document.getElementById('carouselTrack');
-const allCards = Array.from(track.querySelectorAll('.p-card'));
-
-/* Size each card to ~40% of viewport width, min 260px, max 380px */
-function sizeCards() {
-  const vw = viewport.clientWidth;
-  const w  = Math.min(380, Math.max(260, Math.round(vw * 0.40)));
-  allCards.forEach(c => { c.style.width = w + 'px'; });
-}
-sizeCards();
-window.addEventListener('resize', () => { sizeCards(); buildDots(); updateDots(); });
-
-/* ── Filter ── */
-let activeFilter = 'all';
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.dataset.filter;
-    allCards.forEach(c => {
-      c.style.display = (activeFilter === 'all' || c.dataset.cat === activeFilter) ? 'block' : 'none';
-    });
-    viewport.scrollLeft = 0;
-    buildDots(); updateDots();
-  });
-});
-
-/* ── Mouse drag ── */
-let dragging = false, startX = 0, startScroll = 0;
-viewport.addEventListener('mousedown', e => {
-  dragging = true; startX = e.clientX; startScroll = viewport.scrollLeft;
-  viewport.classList.add('grabbing'); e.preventDefault();
-});
-window.addEventListener('mousemove', e => {
-  if (!dragging) return;
-  viewport.scrollLeft = startScroll - (e.clientX - startX);
-});
-window.addEventListener('mouseup', () => { dragging = false; viewport.classList.remove('grabbing'); });
-
-/* ── Arrows ── */
-function cardStep() {
-  const visW = allCards.find(c => c.style.display !== 'none');
-  return visW ? visW.offsetWidth + 16 : 300;
-}
-document.getElementById('cPrev').addEventListener('click', () => viewport.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
-document.getElementById('cNext').addEventListener('click', () => viewport.scrollBy({ left:  cardStep(), behavior: 'smooth' }));
-
-/* ── Dots ── */
-function visibleCards() { return allCards.filter(c => c.style.display !== 'none'); }
-
-function buildDots() {
-  const el = document.getElementById('carouselDots');
-  el.innerHTML = '';
-  const total = visibleCards().length;
-  if (total <= 1) return;
-  /* one dot per card */
-  for (let i = 0; i < total; i++) {
-    const d = document.createElement('button');
-    d.className = 'c-dot';
-    d.setAttribute('aria-label', 'Go to card ' + (i + 1));
-    const idx = i;
-    d.addEventListener('click', () => {
-      const cards = visibleCards();
-      if (cards[idx]) {
-        viewport.scrollTo({ left: cards[idx].offsetLeft - parseInt(getComputedStyle(viewport).paddingLeft), behavior: 'smooth' });
-      }
-    });
-    el.appendChild(d);
-  }
-  updateDots();
-}
-
-function updateDots() {
-  const dots  = document.querySelectorAll('.c-dot');
-  const cards = visibleCards();
-  if (!dots.length || !cards.length) return;
-  const pl    = parseInt(getComputedStyle(viewport).paddingLeft) || 0;
-  const scroll = viewport.scrollLeft;
-  let closest = 0, minDist = Infinity;
-  cards.forEach((c, i) => {
-    const dist = Math.abs(c.offsetLeft - pl - scroll);
-    if (dist < minDist) { minDist = dist; closest = i; }
-  });
-  dots.forEach((d, i) => d.classList.toggle('active', i === closest));
-}
-
-viewport.addEventListener('scroll', updateDots, { passive: true });
-buildDots();
-
-/* ── Smooth anchor scroll ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      const navHeight = document.querySelector('nav').offsetHeight;
-      const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  });
-});
 </script>
 </body>
 </html>
