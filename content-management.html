@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Management — Katariina Kokkonen</title>
+  <title>Content & Digital Operations Management — Katariina Kokkonen</title>
   <meta name="description" content="Content management samples by Katariina Kokkonen." />
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
 
@@ -63,7 +63,7 @@
 
     /* ── CONTENT ── */
     main { padding: 4.5rem 4rem 6rem; max-width: 1200px; margin: 0 auto; }
-    .content-yellow-box { background: var(--yellow-tint); border-radius: 20px; padding: 3rem 2.2rem; text-align: center; margin-top: 3rem; }
+    .content-yellow-box { text-align: center; margin-top: 3rem; }
     .content-yellow-box p { max-width: 34rem; margin: 0 auto 1.6rem; color: var(--gray); font-size: 1rem; line-height: 1.7; }
 
     /* ── Content Management photo carousel: 3 frames side by side, slides left → right, pauses on hover ── */
@@ -71,15 +71,22 @@
       --cw-gap: 1.2rem; --cw-visible: 3; }
     .carousel-viewport { overflow: hidden; }
     .carousel-track { display: flex; gap: var(--cw-gap); transition: transform 0.9s cubic-bezier(0.65,0,0.35,1); }
-    .carousel-frame { flex: 0 0 calc((100% - (var(--cw-visible) - 1) * var(--cw-gap)) / var(--cw-visible));
-      aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 18px rgba(94,83,67,0.15); }
-    .carousel-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .carousel-frame { flex: 0 0 calc((100% - (var(--cw-visible) - 1) * var(--cw-gap)) / var(--cw-visible)); }
+    .carousel-frame-media { aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 18px rgba(94,83,67,0.15); }
+    .carousel-frame img { width: 100%; height: 100%; object-fit: cover; display: block;  overflow-clip-margin: unset;}
+    .carousel-frame-caption { margin-top: 0.6rem; min-height: 1.3em; color: var(--gray); font-size: 0.85rem; text-align: center; }
     .carousel-placeholder { display: flex; align-items: center; justify-content: center; background: var(--yellow-tint); border: 2px dashed #D8D8D8; box-sizing: border-box; }
     .carousel-placeholder p { color: var(--muted); font-size: 0.85rem; text-align: center; padding: 1.5rem; }
     .carousel-dots { display: flex; justify-content: center; gap: 0.45rem; margin-top: 1rem; }
     .carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
       background: #D8D8D8; transition: background 0.2s, transform 0.2s; }
     .carousel-dot.active { background: var(--cyan); transform: scale(1.3); }
+
+    .howto { background: var(--yellow-tint); border-radius: 20px; padding: 2rem 2.2rem; margin-bottom: 3rem; }
+    .howto h2 { font-family: 'KK Display', Georgia, serif; font-weight: 400; font-size: 1.4rem; color: var(--cyan); margin-bottom: 0.8rem; }
+    .howto p { font-size: 0.92rem; line-height: 1.7; color: var(--gray); margin-bottom: 0.5rem; }
+
+    .section-desc { color: var(--gray); font-size: 1rem; line-height: 1.7; margin: 0 0 3rem; }
 
     @media (max-width: 900px) {
       header { padding: 2rem 1.5rem 3.5rem; }
@@ -95,27 +102,53 @@
 
 <header>
   <a class="back-link" href="index.html">← Back to Portfolio</a>
-  <h1 class="page-title">Content Management</h1>
+  <h1 class="page-title">Content & Digital Operations Management</h1>
   <p class="page-intro">A closer look at the content planning and management work behind campaigns and ongoing brand presence — from ideation to publishing schedules.</p>
 </header>
 
 <main>
+  <div class="howto">
+    <h2>Content & Digital Operations</h2>
+    <p>Experience in Content Management, Graphic Design, website building and approval workflows.</p>
+    <p><strong>CRM:</strong> Salesforce</p>
+    <p><strong>CMS/DAM:</strong> Optimizely</p>
+    <p><strong>Approvals:</strong> Veeva, Workfront</p>
+    <p><strong>Graphic Design:</strong> Adobe Creative tools (InDesign, Photoshop), Knak (email builder), Canva</p>
+    <p><strong>Generative AI tools:</strong> Copilot, ChatGPT, Gemini AI</p>
+    <p><strong>Website build:</strong> Claude Code, Salesforce Experience Builder</p>
+    <p><strong>Publishing:</strong> TikTok, Instagram, Facebook, Print Media, Salesforce Experience, Client partnerships</p>
+    <p><strong>Brand Governance:</strong> Following and advocating branding guidelines</p>
+    <p><strong>Event Tech & Campaign Analytics:</strong> Power BI (Campaign ROI & Lead Dashboards), Salesforce (Campaign Tracking), Lead generation app.</p>
+  </div>
+
+  <p class="section-desc"><strong>Need help with Content Management, branding or graphic design for campaigns?</strong> I have experience of content creation from print/digital advertisement delegating, campaign asset support, website content creation (articles, ads, banners) and social media content.</p>
+
   <!--
     HOW TO ADD CONTENT
-    Replace a carousel-placeholder frame's <p> with an <img src="assets/images/your-file.jpg" alt="...">,
-    or copy a whole .carousel-frame block and paste it into the track for a new frame.
+    Replace a carousel-placeholder's <p> with an <img src="assets/images/your-file.jpg" alt="...">
+    (and remove the carousel-placeholder class from its .carousel-frame-media), then fill in the
+    .carousel-frame-caption text below it. Copy a whole .carousel-frame block for a new frame.
   -->
   <div class="carousel" role="region" aria-label="Content management photo carousel">
     <div class="carousel-viewport">
       <div class="carousel-track">
-        <div class="carousel-frame carousel-placeholder">
-          <p>Add a photo here</p>
+        <div class="carousel-frame">
+          <div class="carousel-frame-media">
+            <img src="assets/img/service-graphic-design.jpg" alt="Printed leaflets and posters designed for GE HealthCare" />
+          </div>
+          <p class="carousel-frame-caption">Event assets creation</p>
         </div>
-        <div class="carousel-frame carousel-placeholder">
-          <p>Add a photo here</p>
+        <div class="carousel-frame">
+          <div class="carousel-frame-media">
+            <img src="assets/images/Claude%20AI%20website%20Large.jpeg" alt="Claude Code website" />
+          </div>
+          <p class="carousel-frame-caption">Claude Code website</p>
         </div>
-        <div class="carousel-frame carousel-placeholder">
-          <p>Add a photo here</p>
+        <div class="carousel-frame">
+          <div class="carousel-frame-media carousel-placeholder">
+            <p>Add a photo here</p>
+          </div>
+          <p class="carousel-frame-caption"></p>
         </div>
       </div>
     </div>
@@ -127,7 +160,7 @@
   </div>
 
   <div class="content-yellow-box">
-    <p>Browse the full set of content management samples, plans, and case studies on Google Drive.</p>
+    <p>Browse more Graphic Design Samples</p>
     <a class="pill pill-yellow" href="https://drive.google.com/file/d/1JXjqSvORLjnT2InTJ5fufkKyHMpyu1ek/view?usp=sharing" target="_blank" rel="noopener">Samples</a>
   </div>
 </main>
