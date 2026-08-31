@@ -52,6 +52,7 @@
       box-shadow: 0 4px 10px rgba(94,83,67,0.25); transition: transform 0.15s, box-shadow 0.15s; }
     .pill:hover { transform: translateY(2px); box-shadow: 0 2px 6px rgba(94,83,67,0.22); }
     .pill-sand { background: var(--sand); color: var(--taupe); font-weight: 700; }
+    .pill-yellow { background: var(--yellow); color: var(--taupe); font-weight: 700; }
 
     /* ── HEADER — sandy, like the Services section on the main page ── */
     header { background: var(--sand); padding: 2.5rem 4rem 5rem; text-align: center; }
@@ -72,7 +73,7 @@
     .content-card { display: flex; flex-direction: column; }
     .content-media { aspect-ratio: 4 / 5; border-radius: 20px; border: 2px dashed #D8D8D8; background: var(--sand-tint);
       display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .content-media img, .content-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .content-media img, .content-media video { width: 100%; height: 100%; object-fit: cover; display: block; overflow-clip-margin: unset; }
     .content-media-label { color: var(--muted); font-size: 0.85rem; text-align: center; padding: 1.5rem; }
     .content-platform { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin: 1rem 0 0.3rem; }
     .content-caption { font-size: 0.92rem; line-height: 1.55; color: var(--gray); }
@@ -90,7 +91,7 @@
     .carousel-track { display: flex; gap: var(--cw-gap); transition: transform 0.9s cubic-bezier(0.65,0,0.35,1); }
     .carousel-frame { flex: 0 0 calc((100% - (var(--cw-visible) - 1) * var(--cw-gap)) / var(--cw-visible));
       aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 18px rgba(94,83,67,0.15); }
-    .carousel-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .carousel-frame img { width: 100%; height: 100%; object-fit: cover; display: block; overflow-clip-margin: unset; }
     .carousel-placeholder { display: flex; align-items: center; justify-content: center; background: var(--sand-tint); border: 2px dashed #D8D8D8; box-sizing: border-box; }
     .carousel-dots { display: flex; justify-content: center; gap: 0.45rem; margin-top: 1rem; }
     .carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
@@ -139,7 +140,7 @@
 
   <div class="content-grid">
     <h2 class="content-section-heading">Event Management</h2>
-    <p class="content-section-desc">Holistic Event Management from start to finish. Experience in planning and executing various congresses, user meetings, product launch events, and sponsorship deals. Handles catering and hotel reservations, speaker accommodation, and travel agency partnerships, along with congress booth design and coordination. Knowledge of Finland, Estonia, and Nordic regional congresses, compliance, and processes. Offers help to set up successful events from ground zero to execution, with knowledge of graphic design, project management, and video/photography skillsets.</p>
+    <p class="content-section-desc">Holistic Event Management from start to finish. Experience in planning and executing various congresses, trainings, user meetings, product launch events, and sponsorship deals. Handles catering and hotel reservations, speaker accommodation, and travel agency partnerships, along with congress booth design and coordination. Knowledge of Finland, Estonia, and Nordic regional congresses, compliance, and processes. Offers help to set up successful events from ground-zero to execution, with knowledge of graphic design, project management, and video/photography skillsets.</p>
     <!--
       To add a photo, replace one carousel-placeholder frame's <p> with an
       <img src="assets/img/your-file.jpg" alt="..."> — or copy a whole
@@ -149,19 +150,40 @@
       <div class="carousel-viewport">
         <div class="carousel-track">
           <div class="carousel-frame">
-            <img src="assets/img/service-event-management.jpg" alt="Katariina at a GE HealthCare conference booth" style="object-position: center top;" />
+            <img src="assets/images/sadeturvapaivat%20Large.jpeg" alt="Sadeturvapäivät event" style="object-position: left center;" />
           </div>
           <div class="carousel-frame">
-            <img src="assets/img/service-events.jpg" alt="Event planning at Alapihan Puutarha garden" />
+            <img src="assets/images/kata%20on%20booth.jpg" alt="Katariina at an event booth" />
           </div>
           <div class="carousel-frame">
-            <img src="assets/images/blurred%20face%201.png" alt="Event attendees, faces blurred for privacy" />
+            <img src="assets/images/blurred%20face%201%20Large.jpeg" alt="Event attendees, faces blurred for privacy" />
           </div>
-          <div class="carousel-frame carousel-placeholder">
-            <p class="content-media-label">Add a photo here</p>
+          <div class="carousel-frame">
+            <img src="assets/images/carestation%20product%20launch%20Large.jpeg" alt="Carestation product launch event" />
           </div>
-          <div class="carousel-frame carousel-placeholder">
-            <p class="content-media-label">Add a photo here</p>
+          <div class="carousel-frame">
+            <img src="assets/images/materials%20Large.jpeg" alt="Event materials" />
+          </div>
+          <div class="carousel-frame">
+            <img src="assets/images/user%20meeting%202024.jpg" alt="User meeting, 2024" />
+          </div>
+          <div class="carousel-frame">
+            <img src="assets/images/dinner%20Large.jpeg" alt="Event dinner" />
+          </div>
+          <div class="carousel-frame">
+            <img src="assets/images/elainlaakaripaivat.jpeg" alt="Eläinlääkäripäivät event" />
+          </div>
+          <div class="carousel-frame">
+            <img src="assets/images/CT%20use%20meeting.jpeg" alt="CT user meeting" />
+          </div>
+          <div class="carousel-frame">
+            <img src="assets/images/carestation%20launch.jpeg" alt="Carestation launch event" />
+          </div>
+          <div class="carousel-frame">
+            <img src="assets/images/ice%20cream.jpeg" alt="Giving out ice cream at an event" />
+          </div>
+          <div class="carousel-frame">
+            <img src="assets/images/NNFM%202026%20Large.jpeg" alt="NNFM 2026 event" />
           </div>
         </div>
       </div>
@@ -171,8 +193,16 @@
         <button class="carousel-dot" type="button" aria-label="Show frame 3"></button>
         <button class="carousel-dot" type="button" aria-label="Show frame 4"></button>
         <button class="carousel-dot" type="button" aria-label="Show frame 5"></button>
+        <button class="carousel-dot" type="button" aria-label="Show frame 6"></button>
+        <button class="carousel-dot" type="button" aria-label="Show frame 7"></button>
+        <button class="carousel-dot" type="button" aria-label="Show frame 8"></button>
+        <button class="carousel-dot" type="button" aria-label="Show frame 9"></button>
+        <button class="carousel-dot" type="button" aria-label="Show frame 10"></button>
+        <button class="carousel-dot" type="button" aria-label="Show frame 11"></button>
+        <button class="carousel-dot" type="button" aria-label="Show frame 12"></button>
       </div>
     </div>
+    <a class="pill pill-yellow" href="index.html#contact" style="grid-column: 1 / -1; justify-self: center; margin-top: 0.5rem;">Contact for quote</a>
 
     <h2 class="content-section-heading">Project Management</h2>
     <a class="content-card content-card-link" href="https://drive.google.com/file/d/1qMhz7Inp61fIfkfR4D12gCliD6N46cmx/view?usp=sharing" target="_blank" rel="noopener">
