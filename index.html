@@ -124,18 +124,22 @@
     .trusted { background: var(--white); padding-top: 9rem; padding-bottom: 2rem; text-align: center; }
     .trusted-heading { font-family: 'KK Display', Georgia, serif; font-weight: 700; font-size: clamp(1.5rem, 2.6vw, 2.1rem); color: var(--muted); margin-bottom: 3rem; }
     .marquee { overflow: hidden; position: relative; background: var(--white); padding: 0.8rem 3rem; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); filter: drop-shadow(0 6px 12px rgba(94, 83, 67, 0.12)); }
-    .marquee-track { display: flex; align-items: center; gap: 5.5rem; width: max-content; animation: marquee-ltr 32s linear infinite; }
+    .marquee-track { display: flex; align-items: center; --marquee-gap: 5.5rem; gap: var(--marquee-gap); width: max-content; animation: marquee-ltr 32s linear infinite; }
     .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-set { display: flex; align-items: center; gap: var(--marquee-gap); flex-shrink: 0; }
     .marquee-track img { height: 34px; width: auto; flex-shrink: 0; }
     .marquee-track img.tall { height: 46px; }
-    /* moves left → right */
-    @keyframes marquee-ltr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    /* moves left → right by exactly one set's width (+ its trailing gap), so the
+       next set lines up seamlessly; --marquee-set-width is measured by JS off the
+       real logos so it stays correct if logos are added/resized. The 836px
+       fallback (for no-JS) matches today's five logos at 34px tall. */
+    @keyframes marquee-ltr { from { transform: translateX(calc(-1 * (var(--marquee-set-width, 836px) + var(--marquee-gap)))); } to { transform: translateX(0); } }
 
     /* ── SERVICES / WHAT I OFFER — four blocks like the hand-drawn guide ── */
     .services { background: #F6EAD9; padding-top: 1.5rem; }
     .services-intro { text-align: center; margin-bottom: 4rem; }
     .services-intro .section-heading { color: var(--white); text-shadow: 0 2px 3px rgba(94, 83, 67, 0.3), 0 5px 10px rgba(94, 83, 67, 0.15); }
-    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.2rem; max-width: 1200px; margin: 0 auto; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem; max-width: 1000px; margin: 0 auto; }
     .service-block { display: flex; flex-direction: column; align-items: center; text-align: center; }
     .service-card { background: var(--white); border-radius: 26px; padding: 1.6rem 1.4rem 1.4rem; box-shadow: 0 6px 16px rgba(43,43,43,0.06); display: flex; flex-direction: column; align-items: center; }
     .service-media { width: 78%; max-width: 200px; aspect-ratio: 350 / 500; border-radius: 999px; overflow: hidden; background: var(--teal-tint); position: relative;
@@ -164,7 +168,7 @@
     .cert-name { font-weight: 700; color: var(--taupe); font-size: 0.78rem; }
     .cert-issuer { font-size: 0.7rem; color: var(--muted); margin-top: -0.3rem; }
 
-    /* ── CASE STUDY — Brand Awareness: Alapihan Puutarha ── */
+    /* ── CASE STUDY — Marketing Revamp: Alapihan Puutarha ── */
     .case-study { background: var(--white); display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
     .case-title { font-family: 'KK Display', Georgia, serif; font-weight: 400; font-size: clamp(2.4rem, 4.6vw, 3.9rem); line-height: 1.15; color: var(--taupe); margin-bottom: 2rem; }
     .case-sub { font-size: 1.3rem; color: var(--taupe); margin-bottom: 1.2rem; }
@@ -239,14 +243,14 @@
       section { padding: 4rem 1.5rem; }
       #hero-wrap { min-height: clamp(560px, 85vh, 760px); }
       #hero-content { min-height: clamp(560px, 85vh, 760px); max-width: 100%; padding: 6rem 1.5rem 3rem; }
-      .dandelion { top: 68px; right: -4%; width: 44vw; opacity: 0.85; }
+      .dandelion { top: 68px; right: -4%; width: 44vw; opacity: 0.3; }
       .about { grid-template-columns: 1fr; gap: 3rem; }
       .about-media { margin-bottom: 4.5rem; max-width: 480px; order: 0; }
       .case-study { grid-template-columns: 1fr; gap: 3rem; }
       .contact { grid-template-columns: 1fr; gap: 3rem; }
       .contact-details { gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
-      .marquee-track { gap: 3rem; }
+      .marquee-track { --marquee-gap: 3rem; gap: var(--marquee-gap); }
       .marquee-track img { height: 40px; }
       .marquee-track img.tall { height: 56px; }
     }
@@ -262,7 +266,7 @@
   <a href="#" class="nav-logo">Kokkonen Design</a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#work">Work Samples</a></li>
+    <li><a href="#recommendations">Recommendations</a></li>
     <li><a href="#certificates">Certificates</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -275,7 +279,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="close-menu" id="closeMenu" aria-label="Close menu">✕</button>
   <a href="#services"     onclick="closeMobile()">Services</a>
-  <a href="#work"         onclick="closeMobile()">Work Samples</a>
+  <a href="#recommendations" onclick="closeMobile()">Recommendations</a>
   <a href="#certificates" onclick="closeMobile()">Certificates</a>
   <a href="#contact"      onclick="closeMobile()">Contact</a>
 </div>
@@ -299,9 +303,9 @@
 <section class="about" id="about">
   <div class="about-text reveal">
     <h1 class="section-heading">Who Am I?</h1>
-    <p>I am a Finnish marketing professional with 7 years of experience in various marketing roles, ranging from graphic design to branding and project management.</p>
-    <p>I have worked in B2C/B2B advertising, FMCG, and SAAS/Tech sectors. Proven project manager experience with branding success. Experience in team leadership website development, content creation, social media, and data- driven decisions. Lets work together!</p>
-    <p>Today, as a new career direction, I aspire to work as a marketing specialist catering to the diverse needs of clients, both in Finland and abroad.</p>
+    <p>I am a Finnish marketing professional with 7 years of project and marketing management experience globally in B2C/B2B advertising, FMCG, and SaaS/Tech sectors.</p>
+    <p>I am a proactive and independent contributor, either part of a team or a project. Throughout my career I have gained experience in various coordination positions, making me a key person to pull projects through in a timely manner. My experience ranges from social media content creation, event management, and product management to website development. I am a person of many hats and a wide range of skillsets, who likes to challenge herself with future AI technologies.</p>
+    <p>As of today, I aspire to work catering to the diverse needs of clients and companies alike. Let's work together!</p>
   </div>
   <div class="about-media reveal">
     <div class="about-photo">
@@ -325,7 +329,7 @@
           <img src="assets/img/service-social-media.jpg" alt="Event at Alapihan Puutarha garden" width="373" height="533" loading="lazy" decoding="async" />
           <div class="window-shade"></div>
         </div>
-        <p class="service-name">Social Media<br />Content</p>
+        <p class="service-name">Social Media<br />Management</p>
       </div>
       <a class="pill pill-babyblue" href="social-media-content.html">Samples</a>
     </div>
@@ -335,9 +339,9 @@
           <img src="assets/img/service-event-management.jpg" alt="Katariina at a GE HealthCare conference booth" width="910" height="1215" loading="lazy" decoding="async" style="height: 130%; margin-top: -30px;" />
           <div class="window-shade"></div>
         </div>
-        <p class="service-name">Event<br />Management</p>
+        <p class="service-name">Project/Event<br />Management</p>
       </div>
-      <a class="pill pill-babyblue" href="https://drive.google.com/file/d/1qMhz7Inp61fIfkfR4D12gCliD6N46cmx/view?usp=sharing" target="_blank" rel="noopener">Samples</a>
+      <a class="pill pill-babyblue" href="event-management.html">Samples</a>
     </div>
     <div class="service-block reveal">
       <div class="service-card">
@@ -345,19 +349,9 @@
           <img src="assets/img/service-graphic-design.jpg" alt="Printed leaflets and posters designed for GE HealthCare" width="546" height="780" loading="lazy" decoding="async" />
           <div class="window-shade"></div>
         </div>
-        <p class="service-name">Graphic<br />Design</p>
+        <p class="service-name">Content<br />Management</p>
       </div>
       <a class="pill pill-babyblue" href="https://drive.google.com/file/d/1JXjqSvORLjnT2InTJ5fufkKyHMpyu1ek/view?usp=sharing" target="_blank" rel="noopener">Samples</a>
-    </div>
-    <div class="service-block reveal">
-      <div class="service-card">
-        <div class="service-media">
-          <img src="assets/img/service-project-management.jpg" alt="Project plan and timeline on a clipboard" width="800" height="533" loading="lazy" decoding="async" />
-          <div class="window-shade"></div>
-        </div>
-        <p class="service-name">Project<br />Management</p>
-      </div>
-      <a class="pill pill-babyblue" href="https://drive.google.com/file/d/1qMhz7Inp61fIfkfR4D12gCliD6N46cmx/view?usp=sharing" target="_blank" rel="noopener">Samples</a>
     </div>
   </div>
 </section>
@@ -367,17 +361,21 @@
   <h2 class="trusted-heading display">Trusted by many along the years</h2>
   <div class="marquee">
     <div class="marquee-track">
-      <img class="logo logo-wt" src="assets/img/logo-wunderman-thompson.png" alt="Wunderman Thompson" width="356" height="160" loading="lazy" decoding="async" />
-      <img class="logo logo-ap" src="assets/img/logo-alapihan-puutarha.png" alt="Alapihan Puutarha" width="295" height="160" loading="lazy" decoding="async" />
-      <img class="logo logo-ihs" src="assets/img/logo-ihs.png" alt="IHS — Making cities work" width="341" height="148" loading="lazy" decoding="async" />
-      <img class="logo logo-ge" src="assets/img/logo-ge-healthcare.png" alt="GE HealthCare" width="718" height="160" loading="lazy" decoding="async" />
-      <img class="logo logo-se" src="assets/img/logo-schneider-electric.png" alt="Schneider Electric" width="542" height="160" loading="lazy" decoding="async" />
-      <!-- duplicate set for the seamless loop -->
-      <img class="logo logo-wt" src="assets/img/logo-wunderman-thompson.png" alt="" aria-hidden="true" width="356" height="160" loading="lazy" decoding="async" />
-      <img class="logo logo-ap" src="assets/img/logo-alapihan-puutarha.png" alt="" aria-hidden="true" width="295" height="160" loading="lazy" decoding="async" />
-      <img class="logo logo-ihs" src="assets/img/logo-ihs.png" alt="" aria-hidden="true" width="341" height="148" loading="lazy" decoding="async" />
-      <img class="logo logo-ge" src="assets/img/logo-ge-healthcare.png" alt="" aria-hidden="true" width="718" height="160" loading="lazy" decoding="async" />
-      <img class="logo logo-se" src="assets/img/logo-schneider-electric.png" alt="" aria-hidden="true" width="542" height="160" loading="lazy" decoding="async" />
+      <div class="marquee-set">
+        <img class="logo logo-wt" src="assets/img/logo-wunderman-thompson.png" alt="Wunderman Thompson" width="356" height="160" loading="lazy" decoding="async" />
+        <img class="logo logo-ap" src="assets/img/logo-alapihan-puutarha.png" alt="Alapihan Puutarha" width="295" height="160" loading="lazy" decoding="async" />
+        <img class="logo logo-ihs" src="assets/img/logo-ihs.png" alt="IHS — Making cities work" width="341" height="148" loading="lazy" decoding="async" />
+        <img class="logo logo-ge" src="assets/img/logo-ge-healthcare.png" alt="GE HealthCare" width="718" height="160" loading="lazy" decoding="async" />
+        <img class="logo logo-se" src="assets/img/logo-schneider-electric.png" alt="Schneider Electric" width="542" height="160" loading="lazy" decoding="async" />
+      </div>
+      <!-- duplicate set for the seamless loop; JS clones more of these to fill wide viewports -->
+      <div class="marquee-set" aria-hidden="true">
+        <img class="logo logo-wt" src="assets/img/logo-wunderman-thompson.png" alt="" width="356" height="160" loading="lazy" decoding="async" />
+        <img class="logo logo-ap" src="assets/img/logo-alapihan-puutarha.png" alt="" width="295" height="160" loading="lazy" decoding="async" />
+        <img class="logo logo-ihs" src="assets/img/logo-ihs.png" alt="" width="341" height="148" loading="lazy" decoding="async" />
+        <img class="logo logo-ge" src="assets/img/logo-ge-healthcare.png" alt="" width="718" height="160" loading="lazy" decoding="async" />
+        <img class="logo logo-se" src="assets/img/logo-schneider-electric.png" alt="" width="542" height="160" loading="lazy" decoding="async" />
+      </div>
     </div>
   </div>
 </section>
@@ -386,8 +384,8 @@
 <section id="work">
   <div class="case-study">
     <div class="reveal">
-      <h2 class="case-title">Brand Awareness: Alapihan Puutarha</h2>
-      <p class="case-sub">Case Study</p>
+      <h2 class="case-title">Marketing Revamp: Alapihan Puutarha</h2>
+      <p class="case-sub">Case Study · 2023</p>
       <ul class="case-list">
         <li>Social Media page creation</li>
         <li>Logo planning and design</li>
@@ -427,7 +425,7 @@
     <div class="rec-card reveal">
       <div class="rec-quote" aria-hidden="true">&ldquo;</div>
       <div class="rec-text">
-        <span class="rec-preview">Katariina reported directly to me in her role as Marketing Leader for Finland for a couple of years, and anyone would be lucky to have her in their team.</span><button class="rec-toggle" type="button" aria-expanded="false"> …</button>
+        <span class="rec-preview">Katariina reported directly to me in her role as Marketing Leader for Finland for a couple of years, and anyone would be lucky to have her in their team.</span><button class="rec-toggle" type="button" aria-expanded="false"> Show more</button>
         <div class="rec-full">
           <p>She continuously impresses me with her energy, creativity, and ability to turn ideas into action.</p>
           <p>Katariina consistently goes above and beyond to support both the sales organization and our customers. She combines strategic thinking with an entrepreneurial mindset, always looking for innovative ways to engage audiences and drive results. Whether creating engaging video content at congresses, developing interactive booth activities, producing customer success stories, or exploring new marketing channels, she approaches every initiative with creativity and a strong customer focus.</p>
@@ -447,7 +445,7 @@
     <div class="rec-card reveal">
       <div class="rec-quote" aria-hidden="true">&ldquo;</div>
       <div class="rec-text">
-        <span class="rec-preview">Katariina is leading a marketing operational support on an Offer Creation project. She is managing Assets and Mkt communication media with an international team located partly in UK, India and Finland.</span><button class="rec-toggle" type="button" aria-expanded="false"> …</button>
+        <span class="rec-preview">Katariina is leading a marketing operational support on an Offer Creation project. She is managing Assets and Mkt communication media with an international team located partly in UK, India and Finland.</span><button class="rec-toggle" type="button" aria-expanded="false"> Show more</button>
         <div class="rec-full">
           <p>Her contribution to create, organise and manage marketing with business data were key to achieve project schedule and Quality expectations.</p>
           <p>A sense of Communication and follow up with actions are a clear strength. All team members have noticed her capacity to scale up fast in knowledge and adapt to project high rate pace.</p>
@@ -506,8 +504,8 @@
     </div>
     <div class="form-field"><label>Service Needed</label>
       <select name="Service Needed">
-        <option>Social Media Content</option><option>Event Management</option>
-        <option>Graphic Design</option><option>Project Management</option>
+        <option>Social Media Management</option><option>Project/Event Management</option>
+        <option>Content Management</option>
         <option>Other / Not Sure</option>
       </select>
     </div>
@@ -532,6 +530,34 @@
       el.classList.remove('fade');
     }, 500);
   }, 3000);
+})();
+
+/* ── Logo marquee: measure one set's real width and clone enough copies to fill the viewport, so there's no empty stretch before the loop catches up ── */
+(function () {
+  const marquee = document.querySelector('.marquee');
+  const track = document.querySelector('.marquee-track');
+  const baseSet = track && track.querySelector('.marquee-set');
+  if (!marquee || !track || !baseSet) return;
+
+  function fill() {
+    track.querySelectorAll('.marquee-set').forEach((set, i) => { if (i > 1) set.remove(); });
+    const setWidth = baseSet.offsetWidth;
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    track.style.setProperty('--marquee-set-width', setWidth + 'px');
+    const needed = marquee.clientWidth + setWidth + gap;
+    while (track.scrollWidth < needed) {
+      const clone = baseSet.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    }
+  }
+
+  fill();
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(fill, 200);
+  });
 })();
 
 /* ── Scroll reveal ── */
@@ -560,7 +586,7 @@ document.querySelectorAll('.rec-toggle').forEach((btn) => {
     const card = btn.closest('.rec-card');
     const expanded = card.classList.toggle('expanded');
     btn.setAttribute('aria-expanded', expanded);
-    btn.textContent = expanded ? ' Show less' : ' …';
+    btn.textContent = expanded ? ' Show less' : ' Show more';
   });
 });
 
